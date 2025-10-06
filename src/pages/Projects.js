@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from 'styled-components';
-import ProjectCard from '../components/ProjectCard';
-// import { projectsData } from './data/projects'; // Importez vos données de projets
+import { Link } from 'react-router-dom';
+
 
 const ProjectsContainer = styled.div`
   padding: 80px 20px 50px;
@@ -67,24 +66,74 @@ const ProjectDescription = styled.p`
   font-size: 0.9rem;
 `;
 
-const Projects = () => {
+const Projects = () => { 
   return (
     <ProjectsContainer>
-      <SectionTitle>Mes projets récents</SectionTitle>
+      <SectionTitle>Mes projets</SectionTitle>
       <ProjectsGrid>
-        {/* {projectsData.map(project => (
-          <ProjectCardContainer key={project.id}>
-            <Link to={`/projects/${project.id}`}>
-              <ProjectImage src={project.imageUrl} alt={project.title} />
-              <ProjectOverlay>
-                <div>
-                  <ProjectTitle>{project.title}</ProjectTitle>
-                  <ProjectDescription>{project.description}</ProjectDescription>
-                </div>
-              </ProjectOverlay>
-            </Link>
-          </ProjectCardContainer>
-        ))} */}
+        <ProjectCardContainer>
+          {/* Load the page without creating a new page */}
+          {/* <Link to='/projects/universityProjects'>    
+            <ProjectImage src="../logo.svg" alt="test" />
+            <ProjectOverlay>
+              <div>
+                <ProjectTitle>Projets Universitaires</ProjectTitle>
+                <ProjectDescription></ProjectDescription>
+              </div>
+            </ProjectOverlay>
+          </Link> */}
+          <a href="/projects/universityProjects" target="_blank" rel="noopener noreferrer">
+            <ProjectImage src="../logo.svg" alt="test" />
+            <ProjectOverlay>
+              <div>
+                <ProjectTitle>Projets Universitaires</ProjectTitle>
+                <ProjectDescription>Pages contenant les projets que j'ai réalisé durant mes différentes formations</ProjectDescription>
+              </div>
+            </ProjectOverlay>
+          </a>
+        </ProjectCardContainer>
+        <ProjectCardContainer>
+          {/* Load the page without creating a new page */}
+          {/* <Link to='/projects/gameJamProjects' target="_blank" rel="noopener noreferrer">
+            <ProjectImage src="../logo.svg" alt="test" />
+            <ProjectOverlay>
+              <div>
+                <ProjectTitle>Projets Games Jam</ProjectTitle>
+                <ProjectDescription></ProjectDescription>
+              </div>
+            </ProjectOverlay>
+          </Link> */}
+          <a href="/projects/gameJamProjects" target="_blank" rel="noopener noreferrer">
+            <ProjectImage src="../logo.svg" alt="test" />
+            <ProjectOverlay>
+              <div>
+                <ProjectTitle>Projets Games Jam</ProjectTitle>
+                <ProjectDescription>Pages contenant les projets que j'ai effectué durant les games jam</ProjectDescription>
+              </div>
+            </ProjectOverlay>
+          </a>
+        </ProjectCardContainer>
+        <ProjectCardContainer>
+          {/* Load the page without creating a new page */}
+          {/* <Link to='/projects/personalProjects'>
+            <ProjectImage src="../logo.svg" alt="test" />
+            <ProjectOverlay>
+              <div>
+                <ProjectTitle>Projets Personnels</ProjectTitle>
+                <ProjectDescription></ProjectDescription>
+              </div>
+            </ProjectOverlay>
+          </Link> */}
+          <a href="/projects/personalProjects" target="_blank" rel="noopener noreferrer">
+            <ProjectImage src="../logo.svg" alt="test" />
+            <ProjectOverlay>
+              <div>
+                <ProjectTitle>Projets Personnels</ProjectTitle>
+                <ProjectDescription>Pages contenant les projets que j'ai réalisé durant mes temps libre</ProjectDescription>
+              </div>
+            </ProjectOverlay>
+          </a>
+        </ProjectCardContainer>
       </ProjectsGrid>
     </ProjectsContainer>
   );

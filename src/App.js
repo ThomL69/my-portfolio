@@ -6,6 +6,9 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import UniversityProjects from './pages/UniversityProjects';
+import PersonalProjects from './pages/PersonalProjects';
+import GameJamProjects from './pages/GameJamProjects';
 
 const App = () => {
   return (
@@ -17,10 +20,14 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/projects/personalProjects" element={<PersonalProjects />} />
+          <Route path="/projects/universityProjects" element={<UniversityProjects />} />
+          <Route path="/projects/gameJamProjects" element={<GameJamProjects />} />
         </Routes>
         <Footer />
       </div>
     </Router>
+    
   );
 };
 

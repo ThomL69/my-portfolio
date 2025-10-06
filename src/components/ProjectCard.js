@@ -1,6 +1,4 @@
-import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'; // Si tu utilises react-router
 
 const CardContainer = styled.div`
   background: white;
@@ -8,8 +6,12 @@ const CardContainer = styled.div`
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
-  cursor: pointer;
   height: 350px; // Hauteur fixe pour un design uniforme
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02 );
+  }
 `;
 
 const CardImage = styled.img`
@@ -49,7 +51,8 @@ const TechItem = styled.span`
   color: #3a86ff;
 `;
 
-const ProjectCard = ({ project }) => {
+
+const ProjectCard = ({ project, onOpenModal  }) => {  
   return (
     <CardContainer>
       <CardImage src={project.image} alt={project.title} />
@@ -62,6 +65,7 @@ const ProjectCard = ({ project }) => {
             <TechItem key={index}>{tech}</TechItem>
           ))}
         </TechStack>
+        <button onClick={onOpenModal}>En savoir plus</button>
       </CardContent>
     </CardContainer>
   );

@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Application de gestion de tâches",
+    "description": "Une application web complète pour gérer vos tâches quotidiennes avec des fonctionnalités avancées.",
+    "image": "/images/task-manager.png",
+    "technologies": ["React", "Node.js", "MongoDB", "Express"],
+    "link": "https://github.com/votre-nom-utilisateur/task-manager"
+  },
+  {
+    "id": 2,
+    "title": "Application météo en temps réel",
+    "description": "Une application qui affiche la météo actuelle et les prévisions pour n'importe quel endroit dans le monde.",
+    "image": "/images/weather-app.png",
+    "technologies": ["React", "OpenWeatherMap API"],
+    "link": "https://github.com/votre-nom-utilisateur/weather-app"
+  }
+]
