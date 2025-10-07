@@ -23,7 +23,7 @@ const App = () => {
           <Route path="/projects/universityProjects" element={<UniversityProjects />} />
           <Route path="/projects/gameJamProjects" element={<GameJamProjects />} />
         </Routes>
-        {Route.name == "/" && <Home />}
+        {Route.name == "/my-portfolio" && <Home />}
         <Footer />
       </div>
     </Router>

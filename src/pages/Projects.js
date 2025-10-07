@@ -81,7 +81,7 @@ const Projects = () => {
               </div>
             </ProjectOverlay>
           </Link> */}
-          <a href="/projects/universityProjects" target="_blank" rel="noopener noreferrer">
+          <a href="/projects/universityProjects">
             <ProjectImage src="../logo.svg" alt="test" />
             <ProjectOverlay>
               <div>
