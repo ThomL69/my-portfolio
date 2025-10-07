@@ -62,10 +62,10 @@
     "description": "Projet Gamification du Master 2 ID3D dans une équipe de 4 développeurs.",
     "description_modal": "Avec mon groupe, nous avons créé un jeu de type Puzzle Game, Daedalus Control, sur le moteur Unity avec des intervenants de Virtuos Lyon.</br> Dans ce projet, j'ai implémenté les déplacements du personnage (case par case) sur la face du haut du Rubiks cube mais également les rotations du personnage ainsi que les animations.</br></br>Puis après avoir implémenté les déplacements et rotations, il fallait effectuer la partie où le personnage pouvait être éjecter s'il se trouvait sur la face qui est entrain d'être tourner. Il fallait que le personnage soit éjecté dans la même direction que la rotation faite par le joueur lorsqu'il est dans la carte du monde. On peut voir les résultats que j'ai pu obtenir grâce aux vidéos ci-dessous.",
     "video":"https://user-images.githubusercontent.com/84515372/222698032-470dbf10-b05e-4316-ac34-3c938f142061.mp4",
-    "imageCard":"",
+    "imageCard":"https://ThomL69.github.io/my-portfolio/imgs/Daedalus.png",
     "images": ["https://user-images.githubusercontent.com/84515372/222698847-1ee88567-6e3a-411d-9bc3-2664a72b1085.gif","https://user-images.githubusercontent.com/84515372/222699047-e91bdd2a-48d5-45ff-baa6-ad58c9d6ac03.gif"],
     "technologies": ["C#", "Unity"],
-    "link": "https://github.com/votre-nom-utilisateur/weather-app"
+    "link": ""
   },
   {
     "id": 8,

@@ -81,7 +81,7 @@ const Projects = () => {
               </div>
             </ProjectOverlay>
           </Link> */}
-          <a href="/universityProjects">
+          <a href="/projects/universityProjects" target="_blank" rel="noopener noreferrer">
             <ProjectImage src="../logo.svg" alt="test" />
             <ProjectOverlay>
               <div>
@@ -128,7 +128,7 @@ const Projects = () => {
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Personnels</ProjectTitle>
-                <ProjectDescription>Pages contenant les projets que j'ai réalisé durant mes temps libre</ProjectDescription>
+                <ProjectDescription>Pages contenant les projets que j'ai réalisé durant mes temps libres</ProjectDescription>
               </div>
             </ProjectOverlay>
           </a>

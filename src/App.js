@@ -15,7 +15,7 @@ const App = () => {
       <div>
         <Header />
         <Routes>
-          <Route exact path="/my-portfolio/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
@@ -23,7 +23,7 @@ const App = () => {
           <Route path="/projects/universityProjects" element={<UniversityProjects />} />
           <Route path="/projects/gameJamProjects" element={<GameJamProjects />} />
         </Routes>
-        {console.log(Route.name)}
+
         {Route.name == "/" && <Home />}
         <Footer />
       </div>

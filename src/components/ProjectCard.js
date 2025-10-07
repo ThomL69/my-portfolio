@@ -15,7 +15,7 @@ const CardContainer = styled.div`
 
 const CardImage = styled.img`
   width: 100%;
-  height: 200px; // Hauteur de l'image fixe
+  height: 150px; // Hauteur de l'image fixe
   object-fit: cover;
 `;
 
