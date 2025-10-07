@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import ProjectCard from '../components/ProjectCard';
 import projectsData from '../data/universityProjects.json'; // Import des données de projets

@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Si tu utilises react-router
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -16,7 +15,7 @@ const App = () => {
       <div>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route exact path="/my-portfolio/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
@@ -24,6 +23,7 @@ const App = () => {
           <Route path="/projects/universityProjects" element={<UniversityProjects />} />
           <Route path="/projects/gameJamProjects" element={<GameJamProjects />} />
         </Routes>
+        {Route.name == "/" && <Home />}
         <Footer />
       </div>
     </Router>
