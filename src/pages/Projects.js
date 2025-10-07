@@ -81,7 +81,7 @@ const Projects = () => {
               </div>
             </ProjectOverlay>
           </Link> */}
-          <a href="/projects/universityProjects">
+          <a href="/universityProjects">
             <ProjectImage src="../logo.svg" alt="test" />
             <ProjectOverlay>
               <div>
