@@ -6,11 +6,10 @@ const CardContainer = styled.div`
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
-  height: 350px; // Hauteur fixe pour un design uniforme
-  cursor: pointer;
+  height: 420px; // Hauteur fixe pour un design uniforme
 
   &:hover {
-    transform: scale(1.02 );
+    transform: scale(1.02);
   }
 `;
 
@@ -21,7 +20,7 @@ const CardImage = styled.img`
 `;
 
 const CardContent = styled.div`
-  padding: 20px;
+  padding: 10px;
   text-align: left;
 `;
 
@@ -51,11 +50,22 @@ const TechItem = styled.span`
   color: #3a86ff;
 `;
 
+const DetailsButton = styled.button`
+  background: transparent;
+  border-radius: 12px;
+  border: 2px solid #0444acff;
+  font-size: 20px;
+  cursor: pointer;
+  color: #3a86ff;
+  margin-top: 15px;
+`;
+
 
 const ProjectCard = ({ project, onOpenModal  }) => {  
   return (
     <CardContainer>
-      <CardImage src={project.image} alt={project.title} />
+      <CardImage src={project.imageCard} alt={project.title} />
+
       <CardContent>
         <Title>{project.title}</Title>
         <Description>{project.description}</Description>
@@ -65,7 +75,7 @@ const ProjectCard = ({ project, onOpenModal  }) => {
             <TechItem key={index}>{tech}</TechItem>
           ))}
         </TechStack>
-        <button onClick={onOpenModal}>En savoir plus</button>
+        <DetailsButton onClick={onOpenModal}>En savoir plus</DetailsButton>
       </CardContent>
     </CardContainer>
   );

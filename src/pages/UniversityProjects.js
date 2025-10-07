@@ -16,8 +16,8 @@ const SectionTitle = styled.h2`
 
 const ProjectsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  gap: 20px;
 `;
 
 const UniversityProjects = () => {

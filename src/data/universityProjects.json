@@ -1,18 +1,100 @@
 [
   {
     "id": 1,
-    "title": "Application de gestion de tâches",
-    "description": "Une application web complète pour gérer vos tâches quotidiennes avec des fonctionnalités avancées.",
-    "image": "/images/task-manager.png",
-    "technologies": ["React", "Node.js", "MongoDB", "Express"],
-    "link": "https://github.com/votre-nom-utilisateur/task-manager"
+    "title": "Projet de Tower Defense",
+    "description": "Un mini-jeu de Tower Defense effectué sur GameMaker Studio durant le DUT Informatique.",
+    "description_modal": "Durant ce projet, nous devions créé un jeu comme sujet pour notre projet de fin d'études et nous nous sommes mis d'accord pour faire un mini jeu par personne et du coup, je me suis proposé pour faire un Tower Defense comme mini jeu pour notre projet.</br></br> Comme vous pouvez voir sur la vidéo au-dessus, ce mini jeu est en rapport avec le thème de mon université qui l'IUT Lyon 1. Les dessins n'ont pas été faite par moi mais par une camarade du groupe de projet qui s'est occupé d'un jeu également mais surtout du graphisme de chaque mini jeu de chaque membre du groupe. Et l'histoire du mini jeu est que l'étudiant représenté par le Mortarboard doit supprimé toutes distractions qui sont représentées par les différents objets montrés par la vidéo au-dessus.",
+    "image": "https://user-images.githubusercontent.com/84515372/205859761-fc9ee425-4aae-49e0-a7a2-54c102d7b915.gif",
+    "imageCard": "https://user-images.githubusercontent.com/84515372/205859761-fc9ee425-4aae-49e0-a7a2-54c102d7b915.gif",
+    "technologies": ["GameMaker Studio", "No Code"]
   },
   {
     "id": 2,
-    "title": "Application météo en temps réel",
-    "description": "Une application qui affiche la météo actuelle et les prévisions pour n'importe quel endroit dans le monde.",
-    "image": "/images/weather-app.png",
-    "technologies": ["React", "OpenWeatherMap API"],
+    "title": "Le Runner Game (Error 404)",
+    "description": "Projet effectué en Master informatique par un autre étudiant et moi-même pour faire un runner en 3D.",
+    "description_modal": "Cette réalisation a été faite en groupe et le but était de modéliser un runner avec la gestion des collisions avec des objets 3D (les murs et les powers up), la génération du parcours, etc. Dans ce jeu, j'ai implémenté 3 patterns de murs qui changent aléatoirement selon où se trouve le joueur.",
+    "image": "https://user-images.githubusercontent.com/84515372/184646193-6cb01baf-0a2d-4741-8761-d0a95494b14f.gif",
+    "imageCard": "https://user-images.githubusercontent.com/84515372/184646193-6cb01baf-0a2d-4741-8761-d0a95494b14f.gif",
+    "technologies": ["C++", "Visual Studio"],
+    "codeLink": "https://github.com/ThomL69/My_upload/tree/main/Master1/Code/Code_Error_404"
+  },
+  {
+    "id": 3,
+    "title": "Les champignons",
+    "description": "Mini-projet effectué en Master Informatique sur Blender",
+    "description_modal": "Dans cette réalisation, le but était d'apprendre à utiliser l'outil Blender en créant des champignons. Et dans mon cas, j'ai fais des champignons en rajoutant un décor.",
+    "image": "https://user-images.githubusercontent.com/84515372/184646075-87789020-7b27-43bc-862b-980e2d9ca188.png",
+    "imageCard": "https://user-images.githubusercontent.com/84515372/184646075-87789020-7b27-43bc-862b-980e2d9ca188.png",
+    "technologies": ["Blender"]
+  },
+  {
+    "id": 4,
+    "title": "Squelette 3D",
+    "description": "Mini-projet effectué en Master Informatique pour modéliser un squelette 3D et l'animé avec l'aide d'un script.",
+    "description_modal": "Durant cette réalisation, il fallait d'abord modéliser un squelette avec des formes que l'on voulait et lui implémenter un script le faisant danser.",
+    "image": "https://user-images.githubusercontent.com/84515372/184652093-18632e04-fe44-4881-b4f0-99cdde12068d.gif",
+    "imageCard": "https://user-images.githubusercontent.com/84515372/184652093-18632e04-fe44-4881-b4f0-99cdde12068d.gif",
+    "technologies": ["C++", "Visual Studio"]
+  },
+  {
+    "id": 5,
+    "title": "La physique du monde",
+    "description": "Mini-projet effectué en Master Informatique pour effectue des animations physiques du monde.",
+    "description_modal": "J'ai créé des sphères en leur rajoutant des propriétés physiques du monde comme la gravité et les collisions au sol, ce qui permet d'avoir l'effet de \"rebondissement\" des sphères selon la hauteur où elles sont lâchées.",
+    "image": "https://user-images.githubusercontent.com/84515372/184653264-f567baed-02bc-4d99-9480-42d7aae1e6e4.gif",
+    "imageCard": "https://user-images.githubusercontent.com/84515372/184653264-f567baed-02bc-4d99-9480-42d7aae1e6e4.gif",
+    "technologies": ["C++", "Visual Studio"],
+    "codeLink": "https://github.com/ThomL69/My_upload/tree/main/Master1/Code/Physical_World"
+  },
+  {
+    "id": 6,
+    "title": "Shallow Water",
+    "description": "Mini-projet effectué en Master Informatique pour effectue l'animation de la \"goute d'eau\".",
+    "description_modal": "J'ai créé un terrain avec l'aspect de l'eau et lorsque j'ajoute une perturbation à un certain point du plan, la perturbation se déploie jusqu'aux limites du plan.",
+    "image": "https://user-images.githubusercontent.com/84515372/184653321-465dd50b-0496-4f78-aef8-785a97a31d33.gif",
+    "imageCard": "https://user-images.githubusercontent.com/84515372/184653321-465dd50b-0496-4f78-aef8-785a97a31d33.gif",
+    "technologies": ["C++", "Visual Studio"],
+    "codeLink": "https://github.com/ThomL69/My_upload/tree/main/Master1/Code/Shallow_Water"
+  },
+  {
+    "id": 7,
+    "title": "Daedalus Control",
+    "description": "Projet Gamification du Master 2 ID3D dans une équipe de 4 développeurs.",
+    "description_modal": "Avec mon groupe, nous avons créé un jeu de type Puzzle Game, Daedalus Control, sur le moteur Unity avec des intervenants de Virtuos Lyon.</br> Dans ce projet, j'ai implémenté les déplacements du personnage (case par case) sur la face du haut du Rubiks cube mais également les rotations du personnage ainsi que les animations.</br></br>Puis après avoir implémenté les déplacements et rotations, il fallait effectuer la partie où le personnage pouvait être éjecter s'il se trouvait sur la face qui est entrain d'être tourner. Il fallait que le personnage soit éjecté dans la même direction que la rotation faite par le joueur lorsqu'il est dans la carte du monde. On peut voir les résultats que j'ai pu obtenir grâce aux vidéos ci-dessous.",
+    "video":"https://user-images.githubusercontent.com/84515372/222698032-470dbf10-b05e-4316-ac34-3c938f142061.mp4",
+    "imageCard":"/imgs/Daedalus.png",
+    "images": ["https://user-images.githubusercontent.com/84515372/222698847-1ee88567-6e3a-411d-9bc3-2664a72b1085.gif","https://user-images.githubusercontent.com/84515372/222699047-e91bdd2a-48d5-45ff-baa6-ad58c9d6ac03.gif"],
+    "technologies": ["C#", "Unity"],
     "link": "https://github.com/votre-nom-utilisateur/weather-app"
+  },
+  {
+    "id": 8,
+    "title": "Room Rampage",
+    "description": "",
+    "description_modal": "",
+    "imageCard": "",
+    "image": "",
+    "technologies": [""],
+    "link": ""
+  },
+  {
+    "id": 9,
+    "title": "Jeu des Pièces",
+    "description": "",
+    "description_modal": "",
+    "imageCard": "",
+    "image": "",
+    "technologies": [""],
+    "link": ""
+  },
+  {
+    "id": 10,
+    "title": "Invictus",
+    "description": "",
+    "description_modal": "",
+    "imageCard": "https://github.com/user-attachments/assets/dc651b2c-1784-43d1-9073-6e72c6d4c273",
+    "image": "https://github.com/user-attachments/assets/dc651b2c-1784-43d1-9073-6e72c6d4c273",
+    "technologies": [""],
+    "link": ""
   }
 ]
