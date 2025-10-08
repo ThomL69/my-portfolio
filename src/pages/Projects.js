@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'; // Si tu utilises react-router
-import UniversityProjects from './pages/UniversityProjects';
-import PersonalProjects from './pages/PersonalProjects';
-import GameJamProjects from './pages/GameJamProjects';
+import UniversityProjects from './UniversityProjects';
+import PersonalProjects from './PersonalProjects';
+import GameJamProjects from './GameJamProjects';
 
 const ProjectsContainer = styled.div`
   padding: 80px 20px 50px;
