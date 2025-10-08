@@ -93,17 +93,18 @@ const ProjectModal = ({ isOpen, onClose, project  }) => {
 
             {project.image && <Image src={project.image} alt={project.title} />}
 
-            {project.video && 
+            {project.videos && project.videos.map(video => (
               <Video controls>
-                <source src={project.video} type='video/mp4' />
+                <source src={video} type='video/mp4' />
               </Video>
-            }
+            ))}
 
             <ProjectDescriptionModal dangerouslySetInnerHTML={{ __html: project.description_modal }} />
 
-            {project.images && <Image src={project.images[0]} alt={project.title} />}
-            {project.images && <Image src={project.images[1]} alt={project.title} />}
-
+            {project.images && project.images.map(image => (
+              <Image src={image} alt={project.title} />
+            ))}
+             
             {project.codeLink && <a href={project.codeLink}>Lien du code projet</a> }
         </ProjectContent>
       </ModalContainer>
