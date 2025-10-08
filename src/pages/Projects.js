@@ -74,7 +74,7 @@ const Projects = () => {
         <ProjectCardContainer>
           {/* Load the page in a new page */}
           <Link to='/projects/universityProjects'>    
-            <ProjectImage src="../logo.svg" alt="test" />
+            <ProjectImage src="https://ThomL69.github.io/my-portfolio/logo192.png" alt="test" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Universitaires</ProjectTitle>
@@ -86,7 +86,7 @@ const Projects = () => {
         <ProjectCardContainer>
           {/* Load the page in a new page */}
           <Link to='/projects/gameJamProjects'>
-            <ProjectImage src="../logo.svg" alt="test" />
+            <ProjectImage src="https://ThomL69.github.io/my-portfolio/logo192.png" alt="test" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Games Jam</ProjectTitle>
@@ -98,7 +98,7 @@ const Projects = () => {
         <ProjectCardContainer>
           {/* Load the page in a new page */}
           <Link to='/projects/personalProjects'>
-            <ProjectImage src="../logo.svg" alt="test" />
+            <ProjectImage src="https://ThomL69.github.io/my-portfolio/logo192.png" alt="test" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Personnels</ProjectTitle>
