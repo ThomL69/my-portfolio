@@ -12,6 +12,7 @@ import GameJamProjects from './pages/GameJamProjects';
 const App = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
+      {console.log(process.env.PUBLIC_URL)}
       <div>
         <Header />
         <Routes>
