@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom'; // Si tu utilises react-router
 
 const ProjectsContainer = styled.div`
   padding: 80px 20px 50px;
@@ -71,17 +71,8 @@ const Projects = () => {
       <SectionTitle>Mes projets</SectionTitle>
       <ProjectsGrid>
         <ProjectCardContainer>
-          {/* Load the page without creating a new page */}
-          {/* <Link to='/projects/universityProjects'>    
-            <ProjectImage src="../logo.svg" alt="test" />
-            <ProjectOverlay>
-              <div>
-                <ProjectTitle>Projets Universitaires</ProjectTitle>
-                <ProjectDescription></ProjectDescription>
-              </div>
-            </ProjectOverlay>
-          </Link> */}
-          <a href="/projects/universityProjects" target="_blank" rel="noopener noreferrer">
+          {/* Load the page in a new page */}
+          <Link to='/projects/universityProjects' target="_blank" rel="noopener noreferrer">    
             <ProjectImage src="../logo.svg" alt="test" />
             <ProjectOverlay>
               <div>
@@ -89,20 +80,11 @@ const Projects = () => {
                 <ProjectDescription>Pages contenant les projets que j'ai réalisé durant mes différentes formations</ProjectDescription>
               </div>
             </ProjectOverlay>
-          </a>
+          </Link>
         </ProjectCardContainer>
         <ProjectCardContainer>
-          {/* Load the page without creating a new page */}
-          {/* <Link to='/projects/gameJamProjects' target="_blank" rel="noopener noreferrer">
-            <ProjectImage src="../logo.svg" alt="test" />
-            <ProjectOverlay>
-              <div>
-                <ProjectTitle>Projets Games Jam</ProjectTitle>
-                <ProjectDescription></ProjectDescription>
-              </div>
-            </ProjectOverlay>
-          </Link> */}
-          <a href="/projects/gameJamProjects" target="_blank" rel="noopener noreferrer">
+          {/* Load the page in a new page */}
+          <Link to='/projects/gameJamProjects' target="_blank" rel="noopener noreferrer">
             <ProjectImage src="../logo.svg" alt="test" />
             <ProjectOverlay>
               <div>
@@ -110,20 +92,11 @@ const Projects = () => {
                 <ProjectDescription>Pages contenant les projets que j'ai effectué durant les games jam</ProjectDescription>
               </div>
             </ProjectOverlay>
-          </a>
+          </Link>
         </ProjectCardContainer>
         <ProjectCardContainer>
-          {/* Load the page without creating a new page */}
-          {/* <Link to='/projects/personalProjects'>
-            <ProjectImage src="../logo.svg" alt="test" />
-            <ProjectOverlay>
-              <div>
-                <ProjectTitle>Projets Personnels</ProjectTitle>
-                <ProjectDescription></ProjectDescription>
-              </div>
-            </ProjectOverlay>
-          </Link> */}
-          <a href="/projects/personalProjects" target="_blank" rel="noopener noreferrer">
+          {/* Load the page in a new page */}
+          <Link to='/projects/personalProjects' target="_blank" rel="noopener noreferrer">
             <ProjectImage src="../logo.svg" alt="test" />
             <ProjectOverlay>
               <div>
@@ -131,7 +104,7 @@ const Projects = () => {
                 <ProjectDescription>Pages contenant les projets que j'ai réalisé durant mes temps libres</ProjectDescription>
               </div>
             </ProjectOverlay>
-          </a>
+          </Link>
         </ProjectCardContainer>
       </ProjectsGrid>
     </ProjectsContainer>

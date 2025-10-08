@@ -11,19 +11,20 @@ import GameJamProjects from './pages/GameJamProjects';
 
 const App = () => {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div>
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/projects/personalProjects" element={<PersonalProjects />} />
-          <Route path="/projects/universityProjects" element={<UniversityProjects />} />
-          <Route path="/projects/gameJamProjects" element={<GameJamProjects />} />
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/projects" element={<Projects />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/projects/personalProjects" element={<PersonalProjects />} />
+          <Route exact path="/projects/universityProjects" element={<UniversityProjects />} />
+          <Route exact path="/projects/gameJamProjects" element={<GameJamProjects />} />
         </Routes>
 
+        {console.log(Route.name)}
         {Route.name == "/" && <Home />}
         <Footer />
       </div>
