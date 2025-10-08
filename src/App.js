@@ -12,7 +12,6 @@ import GameJamProjects from './pages/GameJamProjects';
 const App = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      {console.log(process.env.PUBLIC_URL)}
       <div>
         <Header />
         <Routes>
@@ -20,12 +19,11 @@ const App = () => {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/projects" element={<Projects />} />
           <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/projects/personalProjects" element={<PersonalProjects />} />
-          <Route exact path="/projects/universityProjects" element={<UniversityProjects />} />
-          <Route exact path="/projects/gameJamProjects" element={<GameJamProjects />} />
+          <Route exact path="/universityProjects" element={<UniversityProjects />} />
+          <Route exact path="/gameJamProjects" element={<GameJamProjects />} />
+          <Route exact path="/personalProjects" element={<PersonalProjects />} />
         </Routes>
 
-        {console.log(Route.name)}
         {Route.name == "/" && <Home />}
         <Footer />
       </div>
