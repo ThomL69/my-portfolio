@@ -72,7 +72,7 @@ const Projects = () => {
       <ProjectsGrid>
         <ProjectCardContainer>
           {/* Load the page in a new page */}
-          <Link to='/universityProjects' target="_blank" rel="noopener noreferrer">    
+          <Link to='/projects/universityProjects' target="_blank" rel="noopener noreferrer">    
             <ProjectImage src="../logo.svg" alt="test" />
             <ProjectOverlay>
               <div>
@@ -84,7 +84,7 @@ const Projects = () => {
         </ProjectCardContainer>
         <ProjectCardContainer>
           {/* Load the page in a new page */}
-          <Link to='/gameJamProjects' target="_blank" rel="noopener noreferrer">
+          <Link to='/projects/gameJamProjects' target="_blank" rel="noopener noreferrer">
             <ProjectImage src="../logo.svg" alt="test" />
             <ProjectOverlay>
               <div>
@@ -96,7 +96,7 @@ const Projects = () => {
         </ProjectCardContainer>
         <ProjectCardContainer>
           {/* Load the page in a new page */}
-          <Link to='/personalProjects' target="_blank" rel="noopener noreferrer">
+          <Link to='/projects/personalProjects' target="_blank" rel="noopener noreferrer">
             <ProjectImage src="../logo.svg" alt="test" />
             <ProjectOverlay>
               <div>

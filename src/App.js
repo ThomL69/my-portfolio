@@ -19,9 +19,9 @@ const App = () => {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/projects" element={<Projects />} />
           <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/universityProjects" element={<UniversityProjects />} />
-          <Route exact path="/gameJamProjects" element={<GameJamProjects />} />
-          <Route exact path="/personalProjects" element={<PersonalProjects />} />
+          <Route exact path="/projects/universityProjects" element={<UniversityProjects />} />
+          <Route exact path="/projects/gameJamProjects" element={<GameJamProjects />} />
+          <Route exact path="/projects/personalProjects" element={<PersonalProjects />} />
         </Routes>
 
         {Route.name == "/" && <Home />}
