@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'; // Si tu utilises react-router
 import UniversityProjects from './UniversityProjects';
-import PersonalProjects from './PersonalProjects';
-import GameJamProjects from './GameJamProjects';
 
 const ProjectsContainer = styled.div`
   padding: 80px 20px 50px;
@@ -75,8 +73,7 @@ const Projects = () => {
       <ProjectsGrid>
         <ProjectCardContainer>
           {/* Load the page in a new page */}
-          <Link to='/projects/universityProjects' target="_blank" rel="noopener noreferrer" 
-          element={< UniversityProjects/>}>    
+          <Link to='/projects/universityProjects'>    
             <ProjectImage src="../logo.svg" alt="test" />
             <ProjectOverlay>
               <div>
