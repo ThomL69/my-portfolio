@@ -82,7 +82,7 @@
     "description": "Projet d'un TP sur Unreal Engine durant mon deuxième Master 2",
     "description_modal": "Ce mini-projet a été fait sur Unreal Engine et le but du jeu est de collectionner un certain nombre de pièces. On trouve également d'autres pièces qui donnent un boost de vitesse au joueur (ici le cube) pour se déplacer plus rapidement.",
     "imageCard": "https://ThomL69.github.io/my-portfolio/imgs/coin-game.png",
-    "video": "https://github.com/ThomL69/My_Book/assets/84515372/b1ef1cf5-0983-4cf3-ab62-6ceeb829d820",
+    "videos": ["https://github.com/ThomL69/My_Book/assets/84515372/b1ef1cf5-0983-4cf3-ab62-6ceeb829d820"],
     "technologies": ["Blueprint", "Unreal Engine"]
   },
   {
