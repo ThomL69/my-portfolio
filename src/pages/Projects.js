@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'; // Si tu utilises react-router
 import UniversityProjects from './UniversityProjects';
+import GameJamProjects from './GameJamProjects';
+import PersonalProjects from './PersonalProjects';
+
 
 const ProjectsContainer = styled.div`
   padding: 80px 20px 50px;
