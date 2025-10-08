@@ -6,7 +6,7 @@ const CardContainer = styled.div`
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: all 0.3s ease;
-  height: 420px; // Hauteur fixe pour un design uniforme
+  height: auto; // Hauteur fixe pour un design uniforme
 
   &:hover {
     transform: scale(1.02);
@@ -15,8 +15,9 @@ const CardContainer = styled.div`
 
 const CardImage = styled.img`
   width: 100%;
-  height: 150px; // Hauteur de l'image fixe
+  height: 240px; // Hauteur de l'image fixe
   object-fit: cover;
+  align: center;
 `;
 
 const CardContent = styled.div`
@@ -25,6 +26,7 @@ const CardContent = styled.div`
 `;
 
 const Title = styled.h3`
+  font-size: 24px;
   margin-bottom: 10px;
   color: #3a86ff;
 `;
