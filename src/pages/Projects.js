@@ -1,12 +1,9 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'; // Si tu utilises react-router
-import UniversityProjects from './UniversityProjects';
-import GameJamProjects from './GameJamProjects';
-import PersonalProjects from './PersonalProjects';
 
 
 const ProjectsContainer = styled.div`
-  padding: 80px 20px 50px;
+  padding: 50px 20px 50px;
 `;
 
 const SectionTitle = styled.h2`
@@ -75,7 +72,6 @@ const Projects = () => {
       <SectionTitle>Mes projets</SectionTitle>
       <ProjectsGrid>
         <ProjectCardContainer>
-          {/* Load the page in a new page */}
           <Link to='/projects/universityProjects'>    
             <ProjectImage src="https://ThomL69.github.io/my-portfolio/logo192.png" alt="test" />
             <ProjectOverlay>
@@ -87,7 +83,6 @@ const Projects = () => {
           </Link>
         </ProjectCardContainer>
         <ProjectCardContainer>
-          {/* Load the page in a new page */}
           <Link to='/projects/gameJamProjects'>
             <ProjectImage src="https://ThomL69.github.io/my-portfolio/logo192.png" alt="test" />
             <ProjectOverlay>
@@ -99,7 +94,6 @@ const Projects = () => {
           </Link>
         </ProjectCardContainer>
         <ProjectCardContainer>
-          {/* Load the page in a new page */}
           <Link to='/projects/personalProjects'>
             <ProjectImage src="https://ThomL69.github.io/my-portfolio/logo192.png" alt="test" />
             <ProjectOverlay>

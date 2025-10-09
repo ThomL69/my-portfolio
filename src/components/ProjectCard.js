@@ -7,6 +7,7 @@ const CardContainer = styled.div`
   overflow: hidden;
   transition: all 0.3s ease;
   height: auto; // Hauteur fixe pour un design uniforme
+  max-width: 500px;
 
   &:hover {
     transform: scale(1.02);
@@ -63,7 +64,9 @@ const DetailsButton = styled.button`
 `;
 
 
-const ProjectCard = ({ project, onOpenModal  }) => {  
+const ProjectCard = ({ project, onOpenModal }) => {
+  if (!project) return null;
+  
   return (
     <CardContainer>
       <CardImage src={project.imageCard} alt={project.title} />

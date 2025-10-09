@@ -5,7 +5,7 @@ import projectsData from '../data/personalProjects.json'; // Import des données
 import ProjectModal from '../components/ProjectModal'
 
 const ProjectsContainer = styled.div`
-  padding: 80px 20px 50px;
+  padding: 50px 20px 50px;
 `;
 
 const SectionTitle = styled.h2`
@@ -13,6 +13,13 @@ const SectionTitle = styled.h2`
   margin-bottom: 30px;
   color: #3a86ff;
 `;
+
+const SectionMessage = styled.p`
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #3a86ff;
+`;
+
 
 const ProjectsGrid = styled.div`
   display: grid;
@@ -23,10 +30,18 @@ const ProjectsGrid = styled.div`
 const PersonalProjects = () => {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   
-    // Fonction pour ouvrir le modal avec les détails du projet
-    const handleOpenProjectModal = (id) => {
-      setSelectedProjectId(id);
-    };
+  // Fonction pour ouvrir le modal avec les détails du projet
+  const handleOpenProjectModal = (id) => {
+    setSelectedProjectId(id);
+  };
+
+  if (projectsData.length == 0) 
+    return (
+      <ProjectsContainer>
+        <SectionTitle>Mes projets personnels</SectionTitle>
+        <SectionMessage>Insertion de projets personnels en cours...</SectionMessage>
+      </ProjectsContainer>
+    );
 
   return (
     <ProjectsContainer>

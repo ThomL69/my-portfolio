@@ -5,7 +5,7 @@ import projectsData from '../data/gameJamProjects.json'; // Import des données 
 import ProjectModal from '../components/ProjectModal'
 
 const ProjectsContainer = styled.div`
-  padding: 80px 20px 50px;
+  padding: 50px 20px 50px;
 `;
 
 const SectionTitle = styled.h2`

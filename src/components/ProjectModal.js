@@ -106,6 +106,7 @@ const ProjectModal = ({ isOpen, onClose, project  }) => {
             ))}
              
             {project.codeLink && <a href={project.codeLink}>Lien du code projet</a> }
+            {project.link && <a href={project.link}>Lien du projet</a>}
         </ProjectContent>
       </ModalContainer>
     </ModalOverlay>
