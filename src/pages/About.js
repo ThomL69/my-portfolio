@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const AboutContainer = styled.div`
   text-align: center;
-  padding: 80px 20px 50px;
+  padding: 20px 20px 50px;
 `;
 
 const SectionTitle = styled.h2`
@@ -65,25 +65,44 @@ const SkillItem = styled.div`
   }
 `;
 
+const ImageContainer = styled.div`
+
+`;
+
+const BlockLine = styled.hr`
+  width: 250px;
+  height: 5px;
+  background-color: #3a86ff;
+`;
+
 const About = () => {
   return (
     <AboutContainer>
       <SectionTitle>À propos de moi</SectionTitle>
       <AboutContent>
-        <Avatar>
-          <AvatarImage src="https://via.placeholder.com/150" alt="Votre avatar" />
-        </Avatar>
         <Description>
-          Je suis un développeur web passionné par la création d'interfaces utilisateur modernes et performantes. J'aime résoudre des problèmes complexes et apprendre de nouvelles technologies pour créer des solutions innovantes.
+          Je suis Thomas, un jeune développeur de 25 ans passionné par le développement. J'aime résoudre des problèmes complexes et apprendre de nouvelles technologies pour créer des solutions innovantes. <br/> Mon cursus universitaire m'a permis d'apprendre les bases de la programmation avec du C, du C++, C#, du Java ainsi que les technologies web de base, telles que HTML, CSS, Javascript et PHP.
         </Description>
+        <BlockLine />
+        <Description>
+          Je suis à la recherche d'une première expérience en tant que développeur web et/ou logiciel pour mettre en pratique mes compétences dans des projets réels et stimulants pour me permettre d'évoluer professionnellement.
+        </Description>
+        <BlockLine />
         <SectionTitle>Mes compétences clés</SectionTitle>
         <SkillsContainer>
+          <SkillItem>C / C++</SkillItem>
+          <SkillItem>C#</SkillItem>
+          <SkillItem>Python</SkillItem>
+          <SkillItem>Visual Studio</SkillItem>
+          <SkillItem>Moteurs Jeux Vidéo (Unity et Unreal Engine)</SkillItem>
           <SkillItem>HTML5</SkillItem>
           <SkillItem>CSS3</SkillItem>
-          <SkillItem>JavaScript (ES6+)</SkillItem>
+          <SkillItem>PHP</SkillItem>
           <SkillItem>React.js</SkillItem>
-          {/* Ajoutez vos autres compétences */}
+          <SkillItem>Symfony</SkillItem>
         </SkillsContainer>
+        <br/>
+        <br/>
         <Link to="/contact" className="primary-button">Contactez-moi</Link>
       </AboutContent>
     </AboutContainer>

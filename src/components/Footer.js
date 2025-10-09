@@ -30,9 +30,8 @@ const Footer = () => {
         © {new Date().getFullYear()} Mon Portfolio - Tous droits réservés
       </Copyright>
       <SocialLinks>
-        <SocialLink target="_blank" rel="noopener noreferrer" href="#">LinkedIn</SocialLink>
+        <SocialLink target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/thomas-lieghio-b308a5170/">LinkedIn</SocialLink>
         <SocialLink target="_blank" rel="noopener noreferrer" href="#">GitHub</SocialLink>
-        {/* Ajoutez vos autres liens sociaux */}
       </SocialLinks>
     </FooterContainer>
   );

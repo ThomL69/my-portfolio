@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useForm, ValidationError } from '@formspree/react' // Vous devrez installer cette librairie
 
 const ContactContainer = styled.div`
-  padding: 80px 20px 50px;
+  padding: 20px 20px 50px;
 `;
 
 const SectionTitle = styled.h2`
@@ -83,6 +83,8 @@ const Button = styled.button`
 const Contact = () => {
   const [state, handleSubmit] = useForm({
     name: '',
+    firstname: '',
+    company: '',
     email: '',
     message: ''
   });
@@ -92,7 +94,6 @@ const Contact = () => {
       <SectionTitle>Contactez-moi</SectionTitle>
       <ContactFormContainer>
         <Form onSubmit={handleSubmit}>
-          {/* Noms des champs à remplacer par vos propres labels */}
           <InputGroup>
             <Label htmlFor="name">Nom:</Label>
             <TextInput type="text" id="name" name="name" required />
