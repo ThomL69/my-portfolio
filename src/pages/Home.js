@@ -43,7 +43,7 @@ const MyTitle = styled.h1`
   color: #3a86ff;
 `;
 
-const Subtitle = styled.p`
+const Subtitle = styled.h2`
   font-size: 1.5rem;
   margin-bottom: 40px;
   line-height: 1.6;
@@ -90,14 +90,14 @@ const Home = () => {
         <ImageOverlay>
           <MyContent>
             <MyTitle>Créez l'avenir avec moi</MyTitle>
-            <h2 class="fs-4 mt-3 interactiveTitle">
-              "Je recherche actuellement un poste de "
-              <span class="txt-rotate fw-bold" data-period="2000" data-rotate="[ &quot;Développeur web&quot;, &quot;Développeur logiciel&quot;, &quot;Développeur Fullstack&quot;, &quot;Développeur Gameplay&quot;]">
-                <span class="wrap"></span>
+            <Subtitle className="fs-4 mt-3 text-black interactiveTitle">
+              Je recherche actuellement un poste de 
+              <span className="txt-rotate fw-bold" data-period="2000" data-rotate="[ &quot;Développeur web&quot;, &quot;Développeur logiciel&quot;, &quot;Développeur Fullstack&quot;, &quot;Développeur Gameplay&quot;]">
+                <span className="wrap"></span>
               </span>
-            </h2>
+            </Subtitle>
             
-            <Subtitle>Développeur passionné.</Subtitle>
+            {/* <Subtitle>Développeur passionné.</Subtitle> */}
             <ButtonGroup>
               <PrimaryButton to="/projects">Découvrez mes projets</PrimaryButton>
               <SecondaryButton to="/contact">Contactez-moi</SecondaryButton>
