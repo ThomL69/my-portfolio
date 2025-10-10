@@ -90,6 +90,13 @@ const Home = () => {
         <ImageOverlay>
           <MyContent>
             <MyTitle>Créez l'avenir avec moi</MyTitle>
+            <h2 class="fs-4 mt-3 interactiveTitle">
+              "Je recherche actuellement un poste de "
+              <span class="txt-rotate fw-bold" data-period="2000" data-rotate="[ &quot;Développeur web&quot;, &quot;Développeur logiciel&quot;, &quot;Développeur Fullstack&quot;, &quot;Développeur Gameplay&quot;]">
+                <span class="wrap"></span>
+              </span>
+            </h2>
+            
             <Subtitle>Développeur passionné.</Subtitle>
             <ButtonGroup>
               <PrimaryButton to="/projects">Découvrez mes projets</PrimaryButton>
