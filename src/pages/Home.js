@@ -44,10 +44,9 @@ const MyTitle = styled.h1`
 `;
 
 const Subtitle = styled.h2`
-  font-size: 1.5rem;
   margin-bottom: 40px;
   line-height: 1.6;
-  color: #555;
+  color: #0864f9ff;
 `;
 
 const ButtonGroup = styled.div`
@@ -90,9 +89,9 @@ const Home = () => {
         <ImageOverlay>
           <MyContent>
             <MyTitle>Créez l'avenir avec moi</MyTitle>
-            <Subtitle className="fs-4 mt-3 text-black interactiveTitle">
-              Je recherche actuellement un poste de 
-              <span className="txt-rotate fw-bold" data-period="2000" data-rotate="[ &quot;Développeur web&quot;, &quot;Développeur logiciel&quot;, &quot;Développeur Fullstack&quot;, &quot;Développeur Gameplay&quot;]">
+            <Subtitle className="fs-5 mt-3 interactiveTitle">
+              Je recherche actuellement un poste de
+              <span className="txt-rotate fw-bold" data-period="2000" data-rotate="[ &quot; Développeur web&quot;, &quot; Développeur logiciel&quot;, &quot; Développeur Fullstack&quot;, &quot; Développeur Gameplay&quot;]">
                 <span className="wrap"></span>
               </span>
             </Subtitle>
