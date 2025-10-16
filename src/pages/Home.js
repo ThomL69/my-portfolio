@@ -1,35 +1,22 @@
-import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-const HomeContainer = styled.div`
+const HomeContainer = styled(motion.div)`
   text-align: center;
   padding: 100px 20px 50px;
 `;
 
-const MySection = styled.section`
+const MySection = styled(motion.section)`
   margin-bottom: 40px;
   position: relative;
   overflow: hidden;
   height: 600px;
 `;
 
-const ImageOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.4);
-  color: white;
-  display: flex;
+const MyContent = styled(motion.div)`
   align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-`;
-
-const MyContent = styled.div`
-  text-align: left;
-  max-width: 800px;
+  max-width: 500px;
   margin: 50px auto;
   padding: 20px;
   background: rgba(255, 255, 255, 0.9);
@@ -62,9 +49,11 @@ const PrimaryButton = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s ease;
+  flex-grow: 4;
 
   &:hover {
     background: #246ed2;
+    color: white;
   }
 `;
 
@@ -76,33 +65,62 @@ const SecondaryButton = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s ease;
+  flex-grow: 4;
 
   &:hover {
     background: #ddd;
   }
 `;
 
+const container = {
+  hidden: {
+    opacity: 0
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0, // this will set a delay before the children start animating
+      staggerChildren: 0.9 // this will set the time inbetween children animation
+    }
+  }
+};
+
+const dropUp = {
+  hidden: {
+    y: "100vw"
+  },
+  visible: {
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 50,
+      mass: 0.3,
+    }
+  }
+};
+
 const Home = () => {
   return (
-    <HomeContainer>
-      <MySection>
-        <ImageOverlay>
-          <MyContent>
-            <MyTitle>Créez l'avenir avec moi</MyTitle>
-            <Subtitle className="fs-5 mt-3 interactiveTitle">
-              Je recherche actuellement un poste de
-              <span className="txt-rotate fw-bold" data-period="2000" data-rotate="[ &quot; Développeur web&quot;, &quot; Développeur logiciel&quot;, &quot; Développeur Fullstack&quot;, &quot; Développeur Gameplay&quot;]">
-                <span className="wrap"></span>
-              </span>
-            </Subtitle>
-            
-            {/* <Subtitle>Développeur passionné.</Subtitle> */}
-            <ButtonGroup>
-              <PrimaryButton to="/projects">Découvrez mes projets</PrimaryButton>
-              <SecondaryButton to="/contact">Contactez-moi</SecondaryButton>
-            </ButtonGroup>
-          </MyContent>
-        </ImageOverlay>
+    <HomeContainer
+      variants={container}
+      initial="hidden"
+      animate="visible" 
+    >
+      <MySection variants={dropUp}>
+        <MyTitle>Thomas Lieghio</MyTitle>
+        <Subtitle className="fs-5 mt-3 interactiveTitle">
+          Développeur junior en recherche actuelle d'un poste de
+          <span className="txt-rotate fw-bold" data-period="2000" data-rotate="[ &quot; Développeur web&quot;, &quot; Développeur logiciel&quot;, &quot; Développeur Fullstack&quot;, &quot; Développeur Gameplay&quot;]">
+            <span className="wrap"></span>
+          </span>
+        </Subtitle>
+        
+        <MyContent variants={dropUp}>
+          <ButtonGroup>
+            <PrimaryButton to="/projects">Découvrez mes projets</PrimaryButton>
+            <SecondaryButton to="/contact">Contactez-moi</SecondaryButton>
+          </ButtonGroup> 
+        </MyContent>
       </MySection>
     </HomeContainer>
   );

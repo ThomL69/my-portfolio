@@ -15,7 +15,7 @@ const Logo = styled.div`
   font-weight: bold;
   color: #3a86ff;
   text-decoration: none;
-  cursor: pointer;
+  cursor: default;
 `;
 
 const Nav = styled.nav`
