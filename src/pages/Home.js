@@ -79,15 +79,15 @@ const container = {
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0, // this will set a delay before the children start animating
-      staggerChildren: 0.9 // this will set the time inbetween children animation
+      delayChildren: 0.2, // this will set a delay before the children start animating
+      staggerChildren: 0.5 // this will set the time inbetween children animation
     }
   }
 };
 
 const dropUp = {
   hidden: {
-    y: "100vw"
+    y: "50vw"
   },
   visible: {
     y: 0,

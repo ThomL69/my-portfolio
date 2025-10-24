@@ -8,20 +8,26 @@ import Contact from './pages/Contact';
 import UniversityProjects from './pages/UniversityProjects';
 import PersonalProjects from './pages/PersonalProjects';
 import GameJamProjects from './pages/GameJamProjects';
-import Aurora from './components/Aurora';
-import Particles from './components/Particles'
+import Orb from './components/Orb';
 import './App.css';
 
 const App = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
-      <div>
+      <div className='App'>
         <Header />
-        <Aurora
-          colorStops={["#006eff", "#94d1ff", "#33ff69"]}
+        {/* <Aurora
+          colorStops={["#008cff", "#c8ff94", "#33ff69"]}
           blend={0.09}
-          amplitude={1.0}
+          amplitude={0.5}
           speed={0.7}
+        /> */}
+
+        <Orb
+          hoverIntensity={0}
+          rotateOnHover={false}
+          hue={100}
+          forceHoverState={false}
         />
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -34,14 +40,6 @@ const App = () => {
         </Routes>
 
         {Route.name == "/" && <Home />}
-        <div className="aurora-rotate" >
-          <Aurora
-            colorStops={["#33ff69", "#94d1ff", "#006eff"]}
-            blend={0.09}
-            amplitude={1.0}
-            speed={0.7}
-          />
-        </div>
 
         <Footer />
       </div>

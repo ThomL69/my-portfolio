@@ -5,6 +5,7 @@ const FooterContainer = styled.footer`
   padding: 30px 20px;
   text-align: center;
   font-size: 0.9rem;
+  margin-top: auto;
 `;
 
 const Copyright = styled.div`

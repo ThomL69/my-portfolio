@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom'; // Si tu utilises react-router
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 
-const ProjectsContainer = styled.div`
+const ProjectsContainer = styled(motion.div)`
   padding: 50px 20px 50px;
 `;
 
@@ -18,12 +19,12 @@ const ProjectsGrid = styled.div`
   gap: 25px;
 `;
 
-const ProjectCardContainer = styled.div`
+const ProjectCardContainer = styled(motion.div)`
   position: relative;
   height: 260px;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.36);
 `;
 
 const ProjectImage = styled.img`
@@ -66,14 +67,45 @@ const ProjectDescription = styled.p`
   font-size: 0.9rem;
 `;
 
-const Projects = () => { 
+const container = {
+  hidden: {
+    opacity: 0
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.5
+    }
+  }
+}
+
+const popUp = {
+  hidden: {
+    opacity: 0,
+    scale: 0
+  },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 50,
+      mass: 0.3,
+    }
+  }
+}
+
+const Projects = () => {
   return (
-    <ProjectsContainer>
+    <ProjectsContainer variants={container}
+      initial="hidden"
+      animate="visible">
       <SectionTitle>Mes projets</SectionTitle>
       <ProjectsGrid>
-        <ProjectCardContainer>
-          <Link to='/projects/universityProjects'>    
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/logo192.png" alt="test" />
+        <ProjectCardContainer variants={popUp}>
+          <Link to='/projects/universityProjects'>
+            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/university.jpg" alt="test" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Universitaires</ProjectTitle>
@@ -82,9 +114,9 @@ const Projects = () => {
             </ProjectOverlay>
           </Link>
         </ProjectCardContainer>
-        <ProjectCardContainer>
+        <ProjectCardContainer variants={popUp}>
           <Link to='/projects/gameJamProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/logo192.png" alt="test" />
+            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/gamejam.jpg" alt="test" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Games Jam</ProjectTitle>
@@ -93,9 +125,9 @@ const Projects = () => {
             </ProjectOverlay>
           </Link>
         </ProjectCardContainer>
-        <ProjectCardContainer>
+        <ProjectCardContainer variants={popUp}>
           <Link to='/projects/personalProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/logo192.png" alt="test" />
+            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/personnel.jpg" alt="test" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Personnels</ProjectTitle>
@@ -105,7 +137,7 @@ const Projects = () => {
           </Link>
         </ProjectCardContainer>
       </ProjectsGrid>
-    </ProjectsContainer>
+    </ProjectsContainer >
   );
 };
 
