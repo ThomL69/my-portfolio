@@ -54,6 +54,7 @@ const PrimaryButton = styled(Link)`
   &:hover {
     background: #246ed2;
     color: white;
+    text-decoration: none;
   }
 `;
 
@@ -69,6 +70,7 @@ const SecondaryButton = styled(Link)`
 
   &:hover {
     background: #ddd;
+    text-decoration: none;
   }
 `;
 

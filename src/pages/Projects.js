@@ -105,33 +105,39 @@ const Projects = () => {
       <ProjectsGrid>
         <ProjectCardContainer variants={popUp}>
           <Link to='/projects/universityProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/university.jpg" alt="test" />
+            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/university.jpg" alt="logo_prj_univ" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Universitaires</ProjectTitle>
-                <ProjectDescription>Pages contenant les projets que j'ai réalisé durant mes différentes formations</ProjectDescription>
+                <ProjectDescription>
+                  Projets réalisés durant mes différentes formations
+                </ProjectDescription>
               </div>
             </ProjectOverlay>
           </Link>
         </ProjectCardContainer>
         <ProjectCardContainer variants={popUp}>
           <Link to='/projects/gameJamProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/gamejam.jpg" alt="test" />
+            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/gamejam.jpg" alt="logo_gamejam" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Games Jam</ProjectTitle>
-                <ProjectDescription>Pages contenant les projets que j'ai effectué durant les games jam</ProjectDescription>
+                <ProjectDescription>
+                 Projets réalisés durant les games jam
+                </ProjectDescription>
               </div>
             </ProjectOverlay>
           </Link>
         </ProjectCardContainer>
         <ProjectCardContainer variants={popUp}>
           <Link to='/projects/personalProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/personnel.jpg" alt="test" />
+            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/personnel.jpg" alt="logo_prj_perso" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Personnels</ProjectTitle>
-                <ProjectDescription>Pages contenant les projets que j'ai réalisé durant mes temps libres</ProjectDescription>
+                <ProjectDescription>
+                  Projets réalisés durant mon temps libre
+                </ProjectDescription>
               </div>
             </ProjectOverlay>
           </Link>

@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "title": "C/C++",
+        "percentage": "75 %",
+        "width": "75%"
+    },
+    {
+        "id": 2,
+        "title": "C#",
+        "percentage": "80 %",
+        "width": "80%"
+    },
+    {
+        "id": 3,
+        "title": "Python",
+        "percentage": "75 %",
+        "width": "75%"
+    },
+    {
+        "id": 4,
+        "title": "PHP",
+        "percentage": "60 %",
+        "width": "60%"
+    },
+    {
+        "id": 5,
+        "title": "SQL",
+        "percentage": "75 %",
+        "width": "75%"
+    },
+    {
+        "id": 6,
+        "title": "HTML/CSS",
+        "percentage": "60 %",
+        "width": "60%"
+    },
+    {
+        "id": 7,
+        "title": "Git/GitLab/GitHub",
+        "percentage": "80 %",
+        "width": "80%"
+    },
+    {
+        "id": 8,
+        "title": "Symfony",
+        "percentage": "20 %",
+        "width": "20%"
+    },
+    {
+        "id": 9,
+        "title": "React",
+        "percentage": "30 %",
+        "width": "30%"
+    },
+    {
+        "id": 10,
+        "title": "Unity",
+        "percentage": "80 %",
+        "width": "80%"
+    },
+    {
+        "id": 11,
+        "title": "Unreal Engine",
+        "percentage": "75 %",
+        "width": "75%"
+    }
+]

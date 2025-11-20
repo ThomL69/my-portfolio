@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import skillsData from '../data/skills.json'; // Import des données de skills
 
 const AboutContainer = styled(motion.div)`
   text-align: center;
@@ -9,11 +10,11 @@ const AboutContainer = styled(motion.div)`
 
 const SectionTitle = styled(motion.h2)`
   font-size: 2.5rem;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #3a86ff;
 `;
 
-const AboutContent = styled(motion.div)`
+const AboutContent = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
@@ -38,31 +39,34 @@ const AvatarImage = styled.img`
   object-fit: cover;
 `;
 
-const Description = styled.p`
-  font-size: 1rem;
+const Description = styled(motion.p)`
+  text-align: justify;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #555;
-  margin-bottom: 30px;
+  margin-left: 5%;
+  margin-right: 5%;
 `;
 
-const SkillsContainer = styled.div`
+const SkillsContainer = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  margin-right: -15px;
+  margin-left: -15px;
+`;
+
+const progressBarAnimation = keyframes`
+  0%{width : 0}
 `;
 
 const SkillItem = styled.div`
-  padding: 12px 18px;
-  border-radius: 8px;
-  background: #f8f9fa;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05);
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
+  animation-name: ${progressBarAnimation};
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+`;
 
-  &:hover {
-    background: #edf2f7;
-    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.1);
-  }
+const CVContainer = styled.div`
+  text-align: center;
 `;
 
 const BlockLine = styled.hr`
@@ -74,14 +78,14 @@ const BlockLine = styled.hr`
 `;
 
 const container = {
-  hidden: { 
-    opacity: 0 
+  hidden: {
+    opacity: 0
   },
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.5
+      delayChildren: 0.1,
+      staggerChildren: 0.3
     }
   }
 }
@@ -104,36 +108,52 @@ const popUp = {
 
 const About = () => {
   return (
-    <AboutContainer 
+    <AboutContainer
       variants={container}
       initial="hidden"
       animate="visible"
     >
-      <SectionTitle variants={popUp}>À propos de moi</SectionTitle>
-      <AboutContent variants={popUp}>
+      <AboutContent>
+        <SectionTitle>À propos de moi</SectionTitle>
         <Description>
-          Je suis Thomas, un jeune développeur de 25 ans passionné par le développement. J'aime résoudre des problèmes complexes et apprendre de nouvelles technologies pour créer des solutions innovantes. <br /> Mon cursus universitaire m'a permis d'apprendre les bases de la programmation avec du C, du C++, C#, du Java ainsi que les technologies web de base, telles que HTML, CSS, Javascript et PHP. De plus, j'ai égalemment appris à gérer des bases de données SQL et à appliquer des méthodes agiles dans des contextes de projets à plusieurs.
+          Je m'appelle Thomas, un jeune développeur de 25 ans passionné par le développement, curieux et motivé, toujours prêt à apprendre de nouvelles technologies et à relever des défis techniques. <br /> Mon cursus universitaire m'a permis d'apprendre les bases de la programmation avec les langages C, C++, C# et Java, ainsi que les technologies web de base, telles que HTML, CSS, Javascript et PHP. De plus, j'ai égalemment appris à gérer des bases de données SQL et à appliquer des méthodes agiles dans des contextes de projets à plusieurs. <br />
         </Description>
         <BlockLine />
         <Description>
           Je suis à la recherche d'une première expérience en tant que développeur web et/ou logiciel pour mettre en pratique mes compétences dans des projets réels et stimulants pour me permettre d'évoluer professionnellement.
         </Description>
+
         <BlockLine />
-        <SectionTitle>Mes compétences clés</SectionTitle>
-        <SkillsContainer>
-          <SkillItem>C / C++</SkillItem>
-          <SkillItem>C#</SkillItem>
-          <SkillItem>Python</SkillItem>
-          <SkillItem>Visual Studio</SkillItem>
-          <SkillItem>Moteurs Jeux Vidéo (Unity et Unreal Engine)</SkillItem>
-          <SkillItem>HTML5</SkillItem>
-          <SkillItem>CSS3</SkillItem>
-          <SkillItem>PHP</SkillItem>
-          <SkillItem>React.js</SkillItem>
-          <SkillItem>Symfony</SkillItem>
-        </SkillsContainer>
-        <br />
-        <br />
+
+        <div className="container-fluid mx-auto my-3">
+          <SectionTitle>Mes compétences clés</SectionTitle>
+          <SkillsContainer>
+            {skillsData.map(skill => (
+              <section key={skill.id} className="col-12 col-lg-6 d-flex flex-column flex-md-row align-items-center mb-3">
+                <div className="card-body d-flex flex-column col">
+                  <h4 className="card-title text-center mt-2">{skill.title}</h4>
+                  <div className="progress shadow-sm" >
+                    <SkillItem className="progress-bar" role="progressbar" style={{ width: skill.width }}
+                      aria-valuenow={{ width: skill.width }} aria-valuemin="0" aria-valuemax="100"
+                      aria-label="progressbar for HTML and CSS">{skill.percentage}</SkillItem>
+                  </div>
+                </div>
+              </section>
+            ))}
+          </SkillsContainer>
+        </div>
+
+        <BlockLine />
+
+        <CVContainer>
+            <p>
+              Cliquez sur l'icône ci-dessous pour télécharger mon CV dans un format PDF
+            </p>
+            <a href='docs/cv.pdf' id="link-pdf" title='Téléchargez mon CV' download="cv_thomas_lieghio_dev_junior" aria-label='Téléchargez CV en PDF'>
+              <img id="skill-pdf" src="imgs/icons/pdf-icon.png" width="80" className='mb-3' alt="Icon file PDF download" />
+            </a>
+        </CVContainer>
+
         <Link to="/contact" className="primary-button">Contactez-moi</Link>
       </AboutContent>
     </AboutContainer>

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ProjectCard from '../components/ProjectCard';
 import projectsData from '../data/gameJamProjects.json'; // Import des données de projets
 import ProjectModal from '../components/ProjectModal'
+import { useNavigate } from 'react-router-dom';
 
 const ProjectsContainer = styled.div`
   padding: 50px 20px 50px;
@@ -20,6 +21,10 @@ const ProjectsGrid = styled.div`
   gap: 25px;
 `;
 
+// const ReturnButton = styled.button`
+
+// `;
+
 const GameJamProjects = () => {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
   
@@ -28,8 +33,14 @@ const GameJamProjects = () => {
       setSelectedProjectId(id);
     };
 
+    let navigate = useNavigate();
+    const returnProjectsPage = () => {
+      navigate('/projects/');
+    } 
+
   return (
     <ProjectsContainer>
+      <button onClick={returnProjectsPage}>Retour</button>
       <SectionTitle>Mes projets de Game Jam</SectionTitle>     
       <ProjectsGrid>
         {projectsData.map(project => (

@@ -1,6 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
-import { useForm, ValidationError } from '@formspree/react' // Vous devrez installer cette librairie
+import { useForm } from '@formspree/react' // Vous devrez installer cette librairie
 
 const ContactContainer = styled.div`
   padding: 20px 20px 50px;

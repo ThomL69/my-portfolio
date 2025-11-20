@@ -20,24 +20,6 @@
   },
   {
     "id": 3,
-    "title": "Les champignons",
-    "description": "Mini-projet effectué en Master Informatique sur Blender",
-    "description_modal": "Dans cette réalisation, le but était d'apprendre à utiliser l'outil Blender en créant des champignons. Et dans mon cas, j'ai fais des champignons en rajoutant un décor.",
-    "image": "https://user-images.githubusercontent.com/84515372/184646075-87789020-7b27-43bc-862b-980e2d9ca188.png",
-    "imageCard": "https://user-images.githubusercontent.com/84515372/184646075-87789020-7b27-43bc-862b-980e2d9ca188.png",
-    "technologies": ["Blender"]
-  },
-  {
-    "id": 4,
-    "title": "Squelette 3D",
-    "description": "Mini-projet effectué en Master Informatique pour modéliser un squelette 3D et l'animé avec l'aide d'un script.",
-    "description_modal": "Durant cette réalisation, il fallait d'abord modéliser un squelette avec des formes que l'on voulait et lui implémenter un script le faisant danser.",
-    "image": "https://user-images.githubusercontent.com/84515372/184652093-18632e04-fe44-4881-b4f0-99cdde12068d.gif",
-    "imageCard": "https://user-images.githubusercontent.com/84515372/184652093-18632e04-fe44-4881-b4f0-99cdde12068d.gif",
-    "technologies": ["C++", "Visual Studio"]
-  },
-  {
-    "id": 5,
     "title": "La physique du monde",
     "description": "Mini-projet effectué en Master Informatique pour effectue des animations physiques du monde.",
     "description_modal": "J'ai créé des sphères en leur rajoutant des propriétés physiques du monde comme la gravité et les collisions au sol, ce qui permet d'avoir l'effet de \"rebondissement\" des sphères selon la hauteur où elles sont lâchées.",
@@ -47,7 +29,7 @@
     "codeLink": "https://github.com/ThomL69/My_upload/tree/main/Master1/Code/Physical_World"
   },
   {
-    "id": 6,
+    "id": 4,
     "title": "Shallow Water",
     "description": "Mini-projet effectué en Master Informatique pour effectue l'animation de la \"goute d'eau\".",
     "description_modal": "J'ai créé un terrain avec l'aspect de l'eau et lorsque j'ajoute une perturbation à un certain point du plan, la perturbation se déploie jusqu'aux limites du plan.",
@@ -57,7 +39,7 @@
     "codeLink": "https://github.com/ThomL69/My_upload/tree/main/Master1/Code/Shallow_Water"
   },
   {
-    "id": 7,
+    "id": 5,
     "title": "Daedalus Control",
     "description": "Projet Gamification du Master 2 ID3D dans une équipe de 4 développeurs.",
     "description_modal": "Avec mon groupe, nous avons créé un jeu de type Puzzle Game, Daedalus Control, sur le moteur Unity avec des intervenants de Virtuos Lyon.</br> Dans ce projet, j'ai implémenté les déplacements du personnage (case par case) sur la face du haut du Rubiks cube mais également les rotations du personnage ainsi que les animations.</br></br>Puis après avoir implémenté les déplacements et rotations, il fallait effectuer la partie où le personnage pouvait être éjecter s'il se trouvait sur la face qui est entrain d'être tourner. Il fallait que le personnage soit éjecté dans la même direction que la rotation faite par le joueur lorsqu'il est dans la carte du monde. On peut voir les résultats que j'ai pu obtenir grâce aux vidéos ci-dessous.",
@@ -68,7 +50,7 @@
     "link": ""
   },
   {
-    "id": 8,
+    "id": 6,
     "title": "Room Rampage",
     "description": "Projet effectué durant mon deuxième Master 2 avec un autre étudiant pour appliqué tout ce qu'on a appris dans le cours.",
     "description_modal": "Cette réalisation a été faite en groupe et dans ce projet, je me suis occupé de l'IA des ennemis où ils pourchassent le joueur dès qu'il rentre dans une salle et à partir d'une certaine distance avec le joueur, les ennemis commencent à l'attaquer. J'ai utilisé les <code>Scriptables Object</code> pour donner des caractéristiques différentes aux ennemis qu'on a intégré pour le projet (les points d'attaques, la vitesse de déplacement, etc). </br> </br> Je me suis également occupé des UI/UX du jeu qui ont été trouvable sur l'Asset Store de Unity mais aussi sur le site <code>itch.io</code>. Les modèles et les animations du joueur et des ennemis ont été récupéré aussi sur l'Asset Store de Unity.",
@@ -77,7 +59,7 @@
     "technologies": ["C#", "Unity", "ScriptableObject"]
   },
   {
-    "id": 9,
+    "id": 7,
     "title": "Jeu des Pièces",
     "description": "Projet d'un TP sur Unreal Engine durant mon deuxième Master 2",
     "description_modal": "Ce mini-projet a été fait sur Unreal Engine et le but du jeu est de collectionner un certain nombre de pièces. On trouve également d'autres pièces qui donnent un boost de vitesse au joueur (ici le cube) pour se déplacer plus rapidement.",
@@ -86,7 +68,7 @@
     "technologies": ["Blueprint", "Unreal Engine"]
   },
   {
-    "id": 10,
+    "id": 8,
     "title": "Invictus",
     "description": "Projet du Gamagora Game Show durant mon deuxième Master 2 avec une équipe construite à partir des 3 formations en Art, Level Design et Programmation et également ceux de la formation MAAAV",
     "description_modal": "Invictus est un de nos projet de fin d'année de Master 2 à Gamagora réalisé sous Unreal Engine 5. Nous étions une équipe de 17 étudiants dont 5 développeurs et notre but était de réaliser un jeu en 3 mois. <p align=\"center\">  </p> Dans ce jeu, le joueur incarne Avelyn, une jeune femme récemment décédée qui se réveille dans le monde des morts possédée par un démon serpent du nom d'Ika. Pour se libérer de l'emprise de ce démon, elle doit faire équipe avec celui-ci afin qu'Ika puisse retrouver son corps. </br></br><p align=\"center\">  <img src=\"https://github.com/user-attachments/assets/b813fe3d-34b5-4e2c-907d-9878c6191370\" alt=\"image_invictus_menu\" width=\"720px\" height=\"420px\"/></p> Dans ce projet, j’ai réalisé plusieurs éléments dont le GamePlay du personnage d’Ika qui est le combat au corps à corps. Ika peut effectuer un combo de 3 coups pour taper les ennemis et gagner de la folie afin de rester en forme de démon. Ika peut également se protéger des coups pour ainsi perdre de la folie et revenir à la forme humaine (Avelyn). De plus, il possède une capacité de piétinement pour attaquer un grand groupe d’ennemis qui encercleraient le joueur. </br></br> <table align=\"center\"> <thead> <tr><th>Combo d'Ika</th> <th>Stomp(Piétinement) d'Ika</th></thead> <tbody><tr><td><img width=\"320px\" height=\"200px\" src=\"https://github.com/user-attachments/assets/54d55866-d351-4707-93d0-f9fd6655490e\" /></td><td><img width=\"320px\" height=\"200px\" src=\"https://github.com/user-attachments/assets/218ddcc1-9fc3-45b7-bfd4-ba9334919435\" /></td></tr></tbody> </table>  </br>J'ai également implémenter la possibilité au joueur de pouvoir activer la capacité de piétinement. Et pour que le joueur puisse effectuer le piétinement, j'ai créé deux classes Blueprint de type <code>AnimNotify</code> qui sont ajoutées à des frames spécifiques de l'animation du piétinement. Le premier <code>AnimNotify</code> va me permettre d'instancier mon FX de craquement et il va me permettre aussi d'instancier une classe Blueprint qui m'a servit à savoir si la capacité à toucher des ennemis ou pas.</br></br> <p align=\"center\"> <img src=\"https://github.com/user-attachments/assets/eef0044b-5c98-4645-8599-48753af16f3b\" alt=\"image_code_stomp_anim\" width=\"680px\" height=\"460px\"/></p> Dans ce projet, j'ai également développé les arènes qui font apparaître un nombre limité d'ennemi et ces arènes sont également bloquées comme dans les Souls-like (Dark Souls, Elden Ring, etc) ou d'autres jeux Beat'em up (God of War, Bayonetta, etc). En plus de rendre les arènes bloquantes, des ennemis apparaissent pour attaquer directement le joueur. </br></br><video controls  width=\"100%\" height=\"auto\"> <source src=\"https://github.com/user-attachments/assets/524fd753-eb77-4dba-b6ec-8e8b5901065d\" /> </video> </br> Et pour finir, dans ce projet, j'ai également mis en place le système de musique dynamique surtout pour le combat qui varie selon le niveau de folie quand le joueur est dans la forme de démon.",
