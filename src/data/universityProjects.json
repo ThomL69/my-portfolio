@@ -44,7 +44,7 @@
     "description": "Projet Gamification du Master 2 ID3D dans une équipe de 4 développeurs.",
     "description_modal": "Avec mon groupe, nous avons créé un jeu de type Puzzle Game, Daedalus Control, sur le moteur Unity avec des intervenants de Virtuos Lyon.</br> Dans ce projet, j'ai implémenté les déplacements du personnage (case par case) sur la face du haut du Rubiks cube mais également les rotations du personnage ainsi que les animations.</br></br>Puis après avoir implémenté les déplacements et rotations, il fallait effectuer la partie où le personnage pouvait être éjecter s'il se trouvait sur la face qui est entrain d'être tourner. Il fallait que le personnage soit éjecté dans la même direction que la rotation faite par le joueur lorsqu'il est dans la carte du monde. On peut voir les résultats que j'ai pu obtenir grâce aux vidéos ci-dessous.",
     "videos":["https://user-images.githubusercontent.com/84515372/222698032-470dbf10-b05e-4316-ac34-3c938f142061.mp4"],
-    "imageCard":"https://ThomL69.github.io/my-portfolio/imgs/Daedalus.png",
+    "imageCard":"https://ThomL69.github.io/my-portfolio/imgs/Daedalus.webp",
     "images": ["https://user-images.githubusercontent.com/84515372/222698847-1ee88567-6e3a-411d-9bc3-2664a72b1085.gif","https://user-images.githubusercontent.com/84515372/222699047-e91bdd2a-48d5-45ff-baa6-ad58c9d6ac03.gif"],
     "technologies": ["C#", "Unity"],
     "link": ""
@@ -54,7 +54,7 @@
     "title": "Room Rampage",
     "description": "Projet effectué durant mon deuxième Master 2 avec un autre étudiant pour appliqué tout ce qu'on a appris dans le cours.",
     "description_modal": "Cette réalisation a été faite en groupe et dans ce projet, je me suis occupé de l'IA des ennemis où ils pourchassent le joueur dès qu'il rentre dans une salle et à partir d'une certaine distance avec le joueur, les ennemis commencent à l'attaquer. J'ai utilisé les <code>Scriptables Object</code> pour donner des caractéristiques différentes aux ennemis qu'on a intégré pour le projet (les points d'attaques, la vitesse de déplacement, etc). </br> </br> Je me suis également occupé des UI/UX du jeu qui ont été trouvable sur l'Asset Store de Unity mais aussi sur le site <code>itch.io</code>. Les modèles et les animations du joueur et des ennemis ont été récupéré aussi sur l'Asset Store de Unity.",
-    "imageCard": "https://ThomL69.github.io/my-portfolio/imgs/Room-rampage.png",
+    "imageCard": "https://ThomL69.github.io/my-portfolio/imgs/Room-rampage.webp",
     "videos": ["https://github.com/ThomL69/My_Book/assets/84515372/aa87f6d5-d00c-4a53-a6f3-fd68a6c119fe", "https://github.com/ThomL69/My_Book/assets/84515372/d0a854dc-f66b-4f92-a4fb-b5dbaebebfa7"],
     "technologies": ["C#", "Unity", "ScriptableObject"]
   },
@@ -63,7 +63,7 @@
     "title": "Jeu des Pièces",
     "description": "Projet d'un TP sur Unreal Engine durant mon deuxième Master 2",
     "description_modal": "Ce mini-projet a été fait sur Unreal Engine et le but du jeu est de collectionner un certain nombre de pièces. On trouve également d'autres pièces qui donnent un boost de vitesse au joueur (ici le cube) pour se déplacer plus rapidement.",
-    "imageCard": "https://ThomL69.github.io/my-portfolio/imgs/coin-game.png",
+    "imageCard": "https://ThomL69.github.io/my-portfolio/imgs/coin-game.webp",
     "videos": ["https://github.com/ThomL69/My_Book/assets/84515372/b1ef1cf5-0983-4cf3-ab62-6ceeb829d820"],
     "technologies": ["Blueprint", "Unreal Engine"]
   },
