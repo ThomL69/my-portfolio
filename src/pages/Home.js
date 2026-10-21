@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Wrap, ButtonLink } from '../components/ui';
 
 const Hero = styled(motion.section)`
@@ -32,7 +33,6 @@ const MyTitle = styled(motion.h1)`
   }
 `;
 
-// Le texte rotatif est animé par public/js/anim.js (classe .txt-rotate)
 const Subtitle = styled(motion.h2)`
   max-width: 640px;
   min-height: 3.2em;
@@ -42,7 +42,7 @@ const Subtitle = styled(motion.h2)`
   line-height: 1.5;
   color: var(--muted);
 
-  .txt-rotate {
+  .rotating {
     color: var(--text);
     font-weight: 700;
   }
@@ -51,6 +51,47 @@ const Subtitle = styled(motion.h2)`
     min-height: 4.6em;
   }
 `;
+
+const ROTATING_WORDS = [' Développeur web', ' Développeur logiciel', ' Développeur Fullstack', ' Développeur Gameplay'];
+
+const Cursor = styled.span`
+  border-right: 0.08em solid var(--accent);
+`;
+
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Effet machine à écrire (remplace l'ancien script public/js/anim.js)
+const RotatingText = ({ words, period = 2000 }) => {
+  const reduced = prefersReducedMotion();
+  const [wordIndex, setWordIndex] = useState(0);
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    if (reduced) return undefined;
+    const full = words[wordIndex % words.length];
+    let delay = (300 - Math.random() * 400) / (isDeleting ? 2 : 1);
+    let next;
+
+    if (!isDeleting && text === full) {
+      delay = period;
+      next = () => setIsDeleting(true);
+    } else if (isDeleting && text === '') {
+      delay = 500;
+      next = () => { setIsDeleting(false); setWordIndex(i => i + 1); };
+    } else {
+      next = () => setText(isDeleting ? full.substring(0, text.length - 1) : full.substring(0, text.length + 1));
+    }
+
+    const id = setTimeout(next, Math.max(delay, 50));
+    return () => clearTimeout(id);
+  }, [text, isDeleting, wordIndex, words, period, reduced]);
+
+  // Préférence "moins d'animations" : texte fixe, sans effet de frappe
+  if (reduced) return <Cursor style={{ borderRight: 0 }}>{words[0]}</Cursor>;
+  return <Cursor>{text}</Cursor>;
+};
 
 const ButtonGroup = styled(motion.div)`
   display: flex;
@@ -121,8 +162,8 @@ const Home = () => {
         <MyTitle variants={rise}>Thomas <em>Lieghio</em></MyTitle>
         <Subtitle variants={rise}>
           Développeur junior en recherche actuelle d'un poste de
-          <span className="txt-rotate" data-period="2000" data-rotate="[ &quot; Développeur web&quot;, &quot; Développeur logiciel&quot;, &quot; Développeur Fullstack&quot;, &quot; Développeur Gameplay&quot;]">
-            <span className="wrap"></span>
+          <span className="rotating">
+            <RotatingText words={ROTATING_WORDS} period={2000} />
           </span>
         </Subtitle>
 

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 // Apparition douce au scroll. Avec <MotionConfig reducedMotion="user"> (App.js),
 // le déplacement est désactivé si l'utilisateur préfère moins d'animations.

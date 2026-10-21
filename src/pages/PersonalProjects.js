@@ -30,7 +30,7 @@ const PersonalProjects = () => {
     navigate('/projects/');
   }
 
-  if (projectsData.length == 0)
+  if (projectsData.length === 0)
     return (
       <PageSection>
         <Wrap>

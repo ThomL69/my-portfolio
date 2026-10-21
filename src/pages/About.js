@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import skillsData from '../data/skills.json'; // Import des données de skills
 import { Wrap, PageSection, PageTitle, ButtonLink, ButtonAnchor } from '../components/ui';
 import Reveal from '../components/Reveal';

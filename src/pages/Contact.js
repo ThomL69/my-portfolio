@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import { useForm } from '@formspree/react' // Vous devrez installer cette librairie
+import { useForm, ValidationError } from '@formspree/react';
 import { Wrap, PageSection, PageTitle, ButtonEl } from '../components/ui';
 import Reveal from '../components/Reveal';
+
+// Identifiant du formulaire Formspree, défini dans .env (voir .env.example)
+const FORMSPREE_ID = process.env.REACT_APP_FORMSPREE_ID;
 
 const ContactFormContainer = styled.div`
   max-width: 640px;
@@ -66,41 +69,60 @@ const SubmitButton = styled(ButtonEl)`
   }
 `;
 
-const Contact = () => {
-  const [state, handleSubmit] = useForm({
-    name: '',
-    firstname: '',
-    company: '',
-    email: '',
-    message: ''
-  });
+const Message = styled.p`
+  margin: 0;
+  color: var(--text);
+`;
+
+const ContactForm = () => {
+  const [state, handleSubmit] = useForm(FORMSPREE_ID);
+
+  if (state.succeeded) {
+    return <Message role="status">Merci ! Votre message a bien été envoyé.</Message>;
+  }
 
   return (
-    <PageSection>
-      <Wrap>
-        <PageTitle>Contactez-moi</PageTitle>
-        <Reveal>
-          <ContactFormContainer>
-            <Form onSubmit={handleSubmit}>
-              <InputGroup>
-                <Label htmlFor="name">Nom:</Label>
-                <TextInput type="text" id="name" name="name" autoComplete="name" required />
-              </InputGroup>
-              <InputGroup>
-                <Label htmlFor="email">Email:</Label>
-                <TextInput type="email" id="email" name="email" autoComplete="email" required />
-              </InputGroup>
-              <InputGroup>
-                <Label htmlFor="message">Message:</Label>
-                <TextArea id="message" name="message" rows="5" required />
-              </InputGroup>
-              <SubmitButton type="submit">Envoyer</SubmitButton>
-            </Form>
-          </ContactFormContainer>
-        </Reveal>
-      </Wrap>
-    </PageSection>
+    <Form onSubmit={handleSubmit}>
+      <InputGroup>
+        <Label htmlFor="name">Nom:</Label>
+        <TextInput type="text" id="name" name="name" autoComplete="name" required />
+        <ValidationError prefix="Nom" field="name" errors={state.errors} />
+      </InputGroup>
+      <InputGroup>
+        <Label htmlFor="email">Email:</Label>
+        <TextInput type="email" id="email" name="email" autoComplete="email" required />
+        <ValidationError prefix="Email" field="email" errors={state.errors} />
+      </InputGroup>
+      <InputGroup>
+        <Label htmlFor="message">Message:</Label>
+        <TextArea id="message" name="message" rows="5" required />
+        <ValidationError prefix="Message" field="message" errors={state.errors} />
+      </InputGroup>
+      <SubmitButton type="submit" disabled={state.submitting}>Envoyer</SubmitButton>
+      {state.errors && state.errors.getFormErrors().length > 0 && (
+        <Message role="alert">L'envoi a échoué. Veuillez réessayer plus tard.</Message>
+      )}
+    </Form>
   );
 };
+
+const Contact = () => (
+  <PageSection>
+    <Wrap>
+      <PageTitle>Contactez-moi</PageTitle>
+      <Reveal>
+        <ContactFormContainer>
+          {FORMSPREE_ID ? (
+            <ContactForm />
+          ) : (
+            <Message role="alert">
+              Le formulaire de contact n'est pas encore configuré. Merci de me contacter via LinkedIn ou GitHub (liens en bas de page).
+            </Message>
+          )}
+        </ContactFormContainer>
+      </Reveal>
+    </Wrap>
+  </PageSection>
+);
 
 export default Contact;

@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import '../styles/Overlay.css';
 
 // Composants utilitaires pour l'affichage des médias
@@ -137,6 +138,12 @@ const transition = {
 
 // Composant pour afficher les détails du projet dans le modal
 const ProjectModal = ({ isOpen, onClose, project }) => {
+  // Fermeture du modal avec la touche Échap
+  useEffect(() => {
+    const onKeyDown = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
 
   if (!project) return null;
 
@@ -165,7 +172,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
           <ProjectDescriptionModal dangerouslySetInnerHTML={{ __html: project.description_modal }} />
 
           {project.images && project.images.map((image, i) => (
-            <Image key={i} src={image} alt={project.title} />
+            <Image key={i} src={image} alt={project.title} loading="lazy" />
           ))}
 
           {project.codeLink && <a href={project.codeLink}>Lien du code projet</a>}
