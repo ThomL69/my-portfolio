@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Maquette 2 – Sombre aurore</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>:root{--f:"Space Grotesk",system-ui,sans-serif;--bg:#070b14;--alt:#0b1120;--card:rgba(255,255,255,.04);--tx:#eef3ff;--mt:#9aa8c7;--ac:#4ade80;--ac2:#86efac;--onac:#052e16;--chip:rgba(255,255,255,.07);--bd:rgba(255,255,255,.09);--bd2:rgba(255,255,255,.18);--inp:rgba(255,255,255,.05);--hb:rgba(7,11,20,.7);--hbm:#0b1120;--glow:rgba(74,222,128,.28);--r:12px;--r2:18px;--sh:none;--sh2:0 0 0 1px rgba(74,222,128,.4),0 20px 50px rgba(74,222,128,.12);--bargrad:linear-gradient(90deg,#38bdf8,#4ade80)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:var(--f);line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}a{color:inherit}
+.wrap{width:min(1120px,100% - 32px);margin-inline:auto}.narrow{width:min(640px,100% - 32px)}
+.skip{position:absolute;left:-999px}.skip:focus{left:8px;top:8px;background:#fff;color:#000;padding:8px 12px;z-index:99}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px;border-radius:4px}
+.hdr{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:var(--hb);border-bottom:1px solid var(--bd)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-weight:800;font-size:1.25rem;text-decoration:none;letter-spacing:-.02em}.logo span{color:var(--ac)}
+nav{display:flex;gap:4px}nav a{text-decoration:none;padding:8px 14px;border-radius:999px;font-weight:600;font-size:.95rem;color:var(--mt);transition:.2s}
+nav a:hover,nav a.act{color:var(--tx);background:var(--chip)}
+.burger{display:none;background:none;border:0;box-shadow:none;width:44px;height:44px;padding:10px;cursor:pointer}
+.burger span{display:block;height:2px;background:var(--tx);margin:6px 0;transition:.2s}
+.hero{padding:clamp(72px,14vw,160px) 0 clamp(56px,9vw,110px)}
+.eyebrow{font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin:0 0 16px}
+h1{font-size:clamp(2.8rem,8vw,6rem);line-height:1;margin:0 0 24px;letter-spacing:-.04em}
+h1 em{font-style:normal;color:var(--ac)}
+.lead{font-size:clamp(1.1rem,2.2vw,1.45rem);max-width:640px;color:var(--mt);margin:0 0 36px}
+.rot{display:inline-block;color:var(--tx);font-weight:700;border-bottom:3px solid var(--ac);transition:opacity .25s}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:var(--r);font:700 1rem var(--f);text-decoration:none;cursor:pointer;border:2px solid transparent;transition:transform .2s,box-shadow .2s,background .2s;white-space:normal;box-shadow:none;margin:0}
+.btn.primary{background:var(--ac);color:var(--onac)}.btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px var(--glow);background:var(--ac2);color:var(--onac)}
+.btn.ghost{border-color:var(--bd2);color:var(--tx);background:transparent}.btn.ghost:hover{background:var(--chip);transform:translateY(-2px);color:var(--tx)}
+.chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:48px 0 0}
+.chips li{padding:6px 14px;border-radius:999px;background:var(--chip);color:var(--mt);font-size:.85rem;font-weight:600;border:1px solid var(--bd)}
+.sec{padding:clamp(56px,9vw,110px) 0}.sec.alt{background:var(--alt)}
+h2{font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:-.03em;margin:0 0 40px;line-height:1.1}
+h2::after{content:"";display:block;width:56px;height:4px;border-radius:4px;background:var(--ac);margin-top:14px}
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(32px,6vw,72px);align-items:start}
+.txt p{margin:0 0 18px;font-size:1.05rem;max-width:62ch}.txt .cv{margin-top:10px}
+.skills{background:var(--card);border:1px solid var(--bd);border-radius:var(--r2);padding:28px;box-shadow:var(--sh)}
+.skills h3{margin:0 0 20px;font-size:1.15rem}.skills ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:16px 24px}
+.skill-h{display:flex;justify-content:space-between;font-size:.9rem;font-weight:600;margin-bottom:6px}.skill-h b{color:var(--mt);font-weight:600}
+.bar{height:8px;border-radius:8px;background:var(--chip);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:8px;background:var(--bargrad);transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.skills.in .bar i{width:var(--w)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px}
+.pcard{display:flex;flex-direction:column;text-decoration:none;background:var(--card);border:1px solid var(--bd);border-radius:var(--r2);overflow:hidden;box-shadow:var(--sh);transition:transform .3s,box-shadow .3s,border-color .3s}
+.pcard:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:var(--ac)}
+.pimg{aspect-ratio:16/10;overflow:hidden;background:var(--chip)}.pimg img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.pcard:hover .pimg img{transform:scale(1.06)}
+.pbody{padding:22px 24px 26px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pbody h3{margin:4px 0 0;font-size:1.3rem;letter-spacing:-.02em}.pbody p{margin:0;color:var(--mt);font-size:.95rem}
+.tag{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ac)}
+.more{margin-top:auto;padding-top:14px;font-weight:700;color:var(--ac)}.pcard:hover .more span{display:inline-block;transform:translateX(4px)}
+.form{display:grid;gap:18px;background:var(--card);border:1px solid var(--bd);border-radius:var(--r2);padding:clamp(22px,4vw,36px);box-shadow:var(--sh)}
+.form label{display:grid;gap:6px;font-weight:600;font-size:.95rem}
+.form input,.form textarea{font:inherit;padding:13px 15px;border-radius:calc(var(--r) - 2px);border:1.5px solid var(--bd2);background:var(--inp);color:var(--tx);transition:.2s;resize:vertical;width:100%}
+.form input:focus,.form textarea:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 4px var(--glow)}
+.form .btn{justify-self:start}
+.ftr{border-top:1px solid var(--bd);padding:28px 0;color:var(--mt);font-size:.9rem}
+.ftr-in{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.ftr p{margin:0}
+.soc{display:flex;gap:10px}.soc a{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:var(--chip);transition:.2s;color:var(--tx)}.soc a:hover{background:var(--ac);color:var(--onac);transform:translateY(-2px)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media(max-width:860px){.about{grid-template-columns:1fr}.skills ul{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.burger{display:block}nav{position:absolute;top:68px;left:0;right:0;flex-direction:column;background:var(--hbm);padding:12px 16px 20px;border-bottom:1px solid var(--bd);display:none}nav.open{display:flex}.skills ul{grid-template-columns:1fr}.btn{width:100%;justify-content:center}.cta{flex-direction:column}.form .btn{justify-self:stretch}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto}.rv{opacity:1;transform:none}.bar i{width:var(--w)}}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(700px 500px at 80% -10%,rgba(56,189,248,.22),transparent 70%),radial-gradient(600px 500px at 10% 20%,rgba(74,222,128,.16),transparent 70%),radial-gradient(500px 400px at 60% 90%,rgba(129,140,248,.14),transparent 70%)}
+.hero h1{background:linear-gradient(120deg,#fff 30%,#86efac);-webkit-background-clip:text;background-clip:text;color:transparent}.hero h1 em{color:#4ade80;-webkit-text-fill-color:#4ade80}
+.pcard,.skills,.form{backdrop-filter:blur(10px)}.pimg img{filter:none}
+.btn.primary{box-shadow:0 0 28px var(--glow)}.sec.alt{background:rgba(255,255,255,.015)}</style></head><body>
+<a class="skip" href="#main">Aller au contenu</a>
+<header class="hdr"><div class="wrap hdr-in">
+<a class="logo" href="#accueil">Thomas<span>.</span>Lieghio</a>
+<button class="burger" aria-label="Menu" aria-expanded="false" onclick="const n=document.getElementById('nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span></button>
+<nav id="nav" aria-label="Navigation principale"><a href="#accueil" class="act">Accueil</a><a href="#apropos">À propos</a><a href="#projets">Projets</a><a href="#contact">Contact</a></nav>
+</div></header>
+<main id="main">
+<section id="accueil" class="hero"><div class="wrap">
+<p class="eyebrow">Portfolio · Développeur junior</p>
+<h1>Thomas <em>Lieghio</em></h1>
+<p class="lead">Développeur junior en recherche actuelle d'un poste de <span class="rot" id="rot">Développeur web</span></p>
+<div class="cta"><a class="btn primary" href="#projets">Découvrez mes projets</a><a class="btn ghost" href="#contact">Contactez-moi</a></div>
+<ul class="chips" aria-label="Technologies"><li>C / C++</li><li>C#</li><li>Unity</li><li>Unreal Engine</li><li>Python</li><li>SQL</li></ul>
+</div></section>
+<section id="apropos" class="sec"><div class="wrap">
+<h2>À propos de moi</h2>
+<div class="about">
+<div class="txt"><p>Je m'appelle Thomas, un jeune développeur de 25 ans passionné par le développement, curieux et motivé, toujours prêt à apprendre de nouvelles technologies et à relever des défis techniques.</p>
+<p>Mon cursus universitaire m'a permis d'apprendre les bases de la programmation avec les langages C, C++, C# et Java, ainsi que les technologies web de base, telles que HTML, CSS, Javascript et PHP. J'ai également appris à gérer des bases de données SQL et à appliquer des méthodes agiles dans des contextes de projets à plusieurs.</p>
+<p>Je suis à la recherche d'une première expérience en tant que développeur web et/ou logiciel pour mettre en pratique mes compétences dans des projets réels et stimulants pour me permettre d'évoluer professionnellement.</p>
+<a class="btn ghost cv" href="../public/docs/cv.pdf" download="cv_thomas_lieghio_dev_junior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>Télécharger mon CV (PDF)</a></div>
+<div class="skills"><h3>Mes compétences clés</h3><ul><li class="skill"><div class="skill-h"><span>C/C++</span><b>75%</b></div><div class="bar" role="progressbar" aria-label="C/C++" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><i style="--w:75%"></i></div></li><li class="skill"><div class="skill-h"><span>C#</span><b>80%</b></div><div class="bar" role="progressbar" aria-label="C#" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><i style="--w:80%"></i></div></li><li class="skill"><div class="skill-h"><span>Python</span><b>75%</b></div><div class="bar" role="progressbar" aria-label="Python" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><i style="--w:75%"></i></div></li><li class="skill"><div class="skill-h"><span>PHP</span><b>60%</b></div><div class="bar" role="progressbar" aria-label="PHP" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><i style="--w:60%"></i></div></li><li class="skill"><div class="skill-h"><span>SQL</span><b>75%</b></div><div class="bar" role="progressbar" aria-label="SQL" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><i style="--w:75%"></i></div></li><li class="skill"><div class="skill-h"><span>HTML/CSS</span><b>60%</b></div><div class="bar" role="progressbar" aria-label="HTML/CSS" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"><i style="--w:60%"></i></div></li><li class="skill"><div class="skill-h"><span>Git/GitLab/GitHub</span><b>80%</b></div><div class="bar" role="progressbar" aria-label="Git/GitLab/GitHub" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><i style="--w:80%"></i></div></li><li class="skill"><div class="skill-h"><span>Symfony</span><b>20%</b></div><div class="bar" role="progressbar" aria-label="Symfony" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"><i style="--w:20%"></i></div></li><li class="skill"><div class="skill-h"><span>React</span><b>30%</b></div><div class="bar" role="progressbar" aria-label="React" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"><i style="--w:30%"></i></div></li><li class="skill"><div class="skill-h"><span>Unity</span><b>80%</b></div><div class="bar" role="progressbar" aria-label="Unity" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"><i style="--w:80%"></i></div></li><li class="skill"><div class="skill-h"><span>Unreal Engine</span><b>75%</b></div><div class="bar" role="progressbar" aria-label="Unreal Engine" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><i style="--w:75%"></i></div></li></ul></div>
+</div></div></section>
+<section id="projets" class="sec alt"><div class="wrap"><h2>Mes projets</h2><div class="pgrid"><a class="pcard" href="#projets"><div class="pimg"><img src="images/projet-universitaire.svg" alt="Projets Universitaires" loading="lazy"></div><div class="pbody"><span class="tag">C · C++ · C# · Java</span><h3>Projets Universitaires</h3><p>Projets réalisés durant mes différentes formations</p><span class="more">Voir les projets <span aria-hidden="true">→</span></span></div></a><a class="pcard" href="#projets"><div class="pimg"><img src="images/projet-game-jam.svg" alt="Projets Games Jam" loading="lazy"></div><div class="pbody"><span class="tag">Unity · Équipe · 48h</span><h3>Projets Games Jam</h3><p>Projets réalisés durant les games jam</p><span class="more">Voir les projets <span aria-hidden="true">→</span></span></div></a><a class="pcard" href="#projets"><div class="pimg"><img src="images/projet-personnel.svg" alt="Projets Personnels" loading="lazy"></div><div class="pbody"><span class="tag">Unity · Unreal · Web</span><h3>Projets Personnels</h3><p>Projets réalisés durant mon temps libre</p><span class="more">Voir les projets <span aria-hidden="true">→</span></span></div></a></div></div></section>
+<section id="contact" class="sec"><div class="wrap narrow"><h2>Contactez-moi</h2>
+<form class="form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Message prêt (maquette)'">
+<label>Nom<input type="text" name="name" required autocomplete="name"></label>
+<label>Email<input type="email" name="email" required autocomplete="email"></label>
+<label>Message<textarea name="message" rows="5" required></textarea></label>
+<button class="btn primary" type="submit">Envoyer</button></form></div></section>
+</main>
+<footer class="ftr"><div class="wrap ftr-in"><p>© 2026 Thomas Lieghio – Portfolio</p><div class="soc">
+<a href="https://www.linkedin.com/in/thomas-lieghio-b308a5170/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg></a>
+<a href="https://github.com/ThomL69/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a></div></div></footer>
+<script>
+const w=["Développeur web","Développeur logiciel","Développeur Fullstack","Développeur Gameplay"];let i=0;const r=document.getElementById('rot');
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches)setInterval(()=>{r.style.opacity=0;setTimeout(()=>{i=(i+1)%w.length;r.textContent=w[i];r.style.opacity=1},250)},2200);
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.15});
+document.querySelectorAll('.sec,.pcard,.skills').forEach(n=>{n.classList.add('rv');io.observe(n)});
+</script></body></html>
