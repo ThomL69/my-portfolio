@@ -52,7 +52,7 @@ const Subtitle = styled(motion.h2)`
   }
 `;
 
-const ROTATING_WORDS = [' Développeur web', ' Développeur logiciel', ' Développeur Fullstack', ' Développeur Gameplay'];
+const ROTATING_WORDS = [' Unity', ' Unreal Engine'];
 
 const Cursor = styled.span`
   border-right: 0.08em solid var(--accent);
@@ -158,10 +158,11 @@ const Home = () => {
       animate="visible"
     >
       <Wrap>
-        <Eyebrow variants={rise}>Portfolio · Développeur junior</Eyebrow>
+        <Eyebrow variants={rise}>Portfolio · Analyste-développeur</Eyebrow>
         <MyTitle variants={rise}>Thomas <em>Lieghio</em></MyTitle>
         <Subtitle variants={rise}>
-          Développeur junior en recherche actuelle d'un poste de
+          Analyste-développeur Cobol et C#. Sur mon temps libre, je participe à des game jams
+          et je développe des projets sur
           <span className="rotating">
             <RotatingText words={ROTATING_WORDS} period={2000} />
           </span>
@@ -173,8 +174,9 @@ const Home = () => {
         </ButtonGroup>
 
         <Chips variants={rise} aria-label="Technologies">
-          <li>C / C++</li>
+          <li>Cobol</li>
           <li>C#</li>
+          <li>C / C++</li>
           <li>Unity</li>
           <li>Unreal Engine</li>
           <li>Python</li>
