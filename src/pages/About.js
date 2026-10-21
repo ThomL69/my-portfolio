@@ -23,22 +23,6 @@ const AboutContent = styled.div`
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 `;
 
-const Avatar = styled.div`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-bottom: 20px;
-  background: #f9f9f9;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-`;
-
-const AvatarImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
-
 const Description = styled(motion.p)`
   text-align: justify;
   font-size: 1.1rem;

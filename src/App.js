@@ -16,13 +16,6 @@ const App = () => {
     <Router>
       <div className='App'>
         <Header />
-        {/* <Aurora
-          colorStops={["#008cff", "#c8ff94", "#33ff69"]}
-          blend={0.09}
-          amplitude={0.5}
-          speed={0.7}
-        /> */}
-
         <Orb
           hoverIntensity={0}
           rotateOnHover={false}

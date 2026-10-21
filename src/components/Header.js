@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 
 const HeaderContainer = styled.header`
@@ -31,75 +31,37 @@ const NavItem = styled.li`
 
 const MotionLink = motion.create(Link);
 
-const Header = () => {
-  const location = useLocation();
+const NAV_LINKS = [
+  { to: '/', label: 'Accueil' },
+  { to: '/about', label: 'À propos' },
+  { to: '/projects', label: 'Projets' },
+  { to: '/contact', label: 'Contact' },
+];
 
-  return (
-    <HeaderContainer>
-      <Logo>Mon Portfolio</Logo>
-      <Nav aria-label="Navigation principale">
-        <NavItem>
-          <MotionLink id="link-styles" to="/" 
-            key={location.pathname}
-            // Glowing effect
-            // whileHover={{
-            //   textShadow: "0px 0px 10px rgba(98, 93, 253, 0.97)",
-            // }}
-            // transition={{ duration: 0.25 }}
-            // Jelly Hover effect
-            animate={{ rotate: 0, scale: 1, textShadow: "0px 0px 0px rgba(0, 181, 33, 0)",}}
+const Header = () => (
+  <HeaderContainer>
+    <Logo>Mon Portfolio</Logo>
+    <Nav aria-label="Navigation principale">
+      {NAV_LINKS.map(({ to, label }) => (
+        <NavItem key={to}>
+          <MotionLink
+            className="link-styles inline-block"
+            to={to}
+            // Effet "jelly" au survol
+            animate={{ rotate: 0, scale: 1, textShadow: "0px 0px 0px rgba(0, 181, 33, 0)" }}
             whileHover={{
               scale: 1.2,
               rotate: [0, -5, 5, -3, 0],
               textShadow: "0px 0px 10px rgba(0, 181, 33, 1)",
             }}
             transition={{ duration: 0.5 }}
-            className="inline-block"
-          >Accueil
+          >
+            {label}
           </MotionLink>
         </NavItem>
-        <NavItem>
-          <MotionLink id="link-styles" to="/about"
-            // Jelly Hover effect
-            animate={{ rotate: 0, scale: 1, textShadow: "0px 0px 0px rgba(0, 181, 33, 0)",}}
-            whileHover={{
-              scale: 1.2,
-              rotate: [0, -5, 5, -3, 0],
-              textShadow: "0px 0px 10px rgba(0, 181, 33, 1)",
-            }}
-            transition={{ duration: 0.5 }}
-            className="inline-block"
-          >À propos</MotionLink>
-        </NavItem>
-        <NavItem>
-          <MotionLink id="link-styles" to="/projects"
-            // Jelly Hover effect
-            animate={{ rotate: 0, scale: 1, textShadow: "0px 0px 0px rgba(0, 181, 33, 0)",}}
-            whileHover={{
-              scale: 1.2,
-              rotate: [0, -5, 5, -3, 0],
-              textShadow: "0px 0px 10px rgba(0, 181, 33, 1)",
-            }}
-            transition={{ duration: 0.5 }}
-            className="inline-block"
-          >Projets</MotionLink>
-        </NavItem>
-        <NavItem>
-          <MotionLink id="link-styles" to="/contact"
-            // Jelly Hover effect
-            animate={{ rotate: 0, scale: 1, textShadow: "0px 0px 0px rgba(0, 181, 33, 0)",}}
-            whileHover={{
-              scale: 1.2,
-              rotate: [0, -5, 5, -3, 0],
-              textShadow: "0px 0px 10px rgba(0, 181, 33, 1)",
-            }}
-            transition={{ duration: 0.5 }}
-            className="inline-block"
-          >Contact</MotionLink>
-        </NavItem>
-      </Nav>
-    </HeaderContainer>
-  );
-};
+      ))}
+    </Nav>
+  </HeaderContainer>
+);
 
 export default Header;
