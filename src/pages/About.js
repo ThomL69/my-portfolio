@@ -115,13 +115,14 @@ const About = () => {
         <AboutGrid>
           <Reveal>
             <Description>
-              Je m'appelle Thomas, un jeune développeur de 25 ans passionné par le développement, curieux et motivé, toujours prêt à apprendre de nouvelles technologies et à relever des défis techniques.
+              Je m'appelle Thomas, un jeune développeur de 26 ans passionné par le développement, curieux et motivé, toujours prêt à apprendre de nouvelles technologies et à relever des défis techniques.
             </Description>
             <Description>
               Mon cursus universitaire m'a permis d'apprendre les bases de la programmation avec les langages C, C++, C# et Java, ainsi que les technologies web de base, telles que HTML, CSS, Javascript et PHP. De plus, j'ai également appris à gérer des bases de données SQL et à appliquer des méthodes agiles dans des contextes de projets à plusieurs.
             </Description>
             <Description>
-              Je suis à la recherche d'une première expérience en tant que développeur web et/ou logiciel pour mettre en pratique mes compétences dans des projets réels et stimulants pour me permettre d'évoluer professionnellement.
+              Actuellement je suis analyste/développeur en C# et COBOL pour Sofft Industries et dans mon temps libre,
+              je continue à effectuer des projets sur Unity ou sur Unreal Engine.
             </Description>
 
             <CVContainer>
