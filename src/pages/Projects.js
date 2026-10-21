@@ -1,149 +1,145 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Wrap, PageSection, PageTitle, ProjectsGrid } from '../components/ui';
+import Reveal from '../components/Reveal';
 
+const IMG = `${process.env.PUBLIC_URL}/imgs/categories`;
 
-const ProjectsContainer = styled(motion.div)`
-  padding: 50px 20px 50px;
-`;
+const categories = [
+  {
+    to: '/projects/universityProjects',
+    title: 'Projets Universitaires',
+    description: 'Projets réalisés durant mes différentes formations',
+    image: `${IMG}/projet-universitaire.svg`,
+    alt: 'Illustration : fenêtre de code et toque universitaire',
+    tag: 'C · C++ · C# · Java',
+  },
+  {
+    to: '/projects/gameJamProjects',
+    title: 'Projets Games Jam',
+    description: 'Projets réalisés durant les games jam',
+    image: `${IMG}/projet-game-jam.svg`,
+    alt: 'Illustration : chronomètre 48h et pixels de jeu',
+    tag: 'Unity · Équipe · 48h',
+  },
+  {
+    to: '/projects/personalProjects',
+    title: 'Projets Personnels',
+    description: 'Projets réalisés durant mon temps libre',
+    image: `${IMG}/projet-personnel.svg`,
+    alt: 'Illustration : fusée en orbite autour d\'une planète',
+    tag: 'Unity · Unreal · Web',
+  },
+];
 
-const SectionTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #3a86ff;
-`;
-
-const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-`;
-
-const ProjectCardContainer = styled(motion.div)`
-  position: relative;
-  height: 260px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.36);
-`;
-
-const ProjectImage = styled.img`
-  width: 100%;
-  height: 70%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-`;
-
-const ProjectOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
+const CategoryCard = styled(Link)`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-  height: 70%;
-  width: 100%;
-  transition: all 0.3s ease;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-hover);
+    color: var(--text);
   }
+`;
+
+const ImageBox = styled.div`
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--chip);
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+  }
+
+  ${CategoryCard}:hover & img {
+    transform: scale(1.06);
+  }
+`;
+
+const Body = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 6px;
+  padding: 22px 24px 26px;
+`;
+
+const Tag = styled.span`
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  margin: 4px 0 0;
+  font-size: 1.3rem;
+  letter-spacing: -0.02em;
 `;
 
 const ProjectDescription = styled.p`
-  font-size: 0.9rem;
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--muted);
 `;
 
-const container = {
-  hidden: {
-    opacity: 0
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.2,
-      staggerChildren: 0.5
-    }
-  }
-}
+const More = styled.span`
+  margin-top: auto;
+  padding-top: 14px;
+  font-weight: 700;
+  color: var(--accent);
 
-const popUp = {
-  hidden: {
-    opacity: 0,
-    scale: 0
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 50,
-      mass: 0.3,
-    }
+  span {
+    display: inline-block;
+    transition: transform 0.2s;
   }
-}
+
+  ${CategoryCard}:hover & span {
+    transform: translateX(4px);
+  }
+`;
 
 const Projects = () => {
   return (
-    <ProjectsContainer variants={container}
-      initial="hidden"
-      animate="visible">
-      <SectionTitle>Mes projets</SectionTitle>
-      <ProjectsGrid>
-        <ProjectCardContainer variants={popUp}>
-          <Link to='/projects/universityProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/university.jpg" alt="logo_prj_univ" />
-            <ProjectOverlay>
-              <div>
-                <ProjectTitle>Projets Universitaires</ProjectTitle>
-                <ProjectDescription>
-                  Projets réalisés durant mes différentes formations
-                </ProjectDescription>
-              </div>
-            </ProjectOverlay>
-          </Link>
-        </ProjectCardContainer>
-        <ProjectCardContainer variants={popUp}>
-          <Link to='/projects/gameJamProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/gamejam.jpg" alt="logo_gamejam" />
-            <ProjectOverlay>
-              <div>
-                <ProjectTitle>Projets Games Jam</ProjectTitle>
-                <ProjectDescription>
-                 Projets réalisés durant les games jam
-                </ProjectDescription>
-              </div>
-            </ProjectOverlay>
-          </Link>
-        </ProjectCardContainer>
-        <ProjectCardContainer variants={popUp}>
-          <Link to='/projects/personalProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/personnel.jpg" alt="logo_prj_perso" />
-            <ProjectOverlay>
-              <div>
-                <ProjectTitle>Projets Personnels</ProjectTitle>
-                <ProjectDescription>
-                  Projets réalisés durant mon temps libre
-                </ProjectDescription>
-              </div>
-            </ProjectOverlay>
-          </Link>
-        </ProjectCardContainer>
-      </ProjectsGrid>
-    </ProjectsContainer >
+    <PageSection>
+      <Wrap>
+        <PageTitle>Mes projets</PageTitle>
+        <ProjectsGrid>
+          {categories.map((c, i) => (
+            <Reveal key={c.to} delay={i * 0.1} style={{ height: '100%' }}>
+              <CategoryCard to={c.to}>
+                <ImageBox>
+                  <img src={c.image} alt={c.alt} loading="lazy" />
+                </ImageBox>
+                <Body>
+                  <Tag>{c.tag}</Tag>
+                  <ProjectTitle>{c.title}</ProjectTitle>
+                  <ProjectDescription>{c.description}</ProjectDescription>
+                  <More>Voir les projets <span aria-hidden="true">→</span></More>
+                </Body>
+              </CategoryCard>
+            </Reveal>
+          ))}
+        </ProjectsGrid>
+      </Wrap>
+    </PageSection>
   );
 };
 
