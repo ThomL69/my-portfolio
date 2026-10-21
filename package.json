@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://ThomL69.github.io/my-portfolio",
   "dependencies": {
-    "@formspree/react": "^3.0.0",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.0",
     "@testing-library/react": "^16.3.0",

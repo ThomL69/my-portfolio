@@ -170,7 +170,6 @@ const Home = () => {
 
         <ButtonGroup variants={rise}>
           <ButtonLink to="/projects">Découvrez mes projets</ButtonLink>
-          <ButtonLink to="/contact" $ghost>Contactez-moi</ButtonLink>
         </ButtonGroup>
 
         <Chips variants={rise} aria-label="Technologies">
