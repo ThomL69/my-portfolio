@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
@@ -74,6 +75,40 @@ const SecondaryButton = styled(Link)`
   }
 `;
 
+const ROTATING_WORDS = [' Développeur web', ' Développeur logiciel', ' Développeur Fullstack', ' Développeur Gameplay'];
+
+const Cursor = styled.span`
+  border-right: 0.08em solid #666;
+`;
+
+// Effet machine à écrire (remplace l'ancien script public/js/anim.js)
+const RotatingText = ({ words, period = 2000 }) => {
+  const [wordIndex, setWordIndex] = useState(0);
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  useEffect(() => {
+    const full = words[wordIndex % words.length];
+    let delay = (300 - Math.random() * 400) / (isDeleting ? 2 : 1);
+    let next;
+
+    if (!isDeleting && text === full) {
+      delay = period;
+      next = () => setIsDeleting(true);
+    } else if (isDeleting && text === '') {
+      delay = 500;
+      next = () => { setIsDeleting(false); setWordIndex(i => i + 1); };
+    } else {
+      next = () => setText(isDeleting ? full.substring(0, text.length - 1) : full.substring(0, text.length + 1));
+    }
+
+    const id = setTimeout(next, Math.max(delay, 50));
+    return () => clearTimeout(id);
+  }, [text, isDeleting, wordIndex, words, period]);
+
+  return <Cursor>{text}</Cursor>;
+};
+
 const container = {
   hidden: {
     opacity: 0
@@ -112,8 +147,8 @@ const Home = () => {
         <MyTitle>Thomas Lieghio</MyTitle>
         <Subtitle className="fs-5 mt-3 interactiveTitle">
           Développeur junior en recherche actuelle d'un poste de
-          <span className="txt-rotate fw-bold" data-period="2000" data-rotate="[ &quot; Développeur web&quot;, &quot; Développeur logiciel&quot;, &quot; Développeur Fullstack&quot;, &quot; Développeur Gameplay&quot;]">
-            <span className="wrap"></span>
+          <span className="fw-bold">
+            <RotatingText words={ROTATING_WORDS} period={2000} />
           </span>
         </Subtitle>
         
