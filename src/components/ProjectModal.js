@@ -1,5 +1,6 @@
+import { useEffect } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import '../styles/Overlay.css';
 
 // Composants utilitaires pour l'affichage des médias
@@ -93,23 +94,33 @@ const transition = {
 // Composant pour afficher les détails du projet dans le modal
 const ProjectModal = ({ isOpen, onClose, project }) => {
 
+  // Fermeture du modal avec la touche Echap
+  useEffect(() => {
+    const onKeyDown = (e) => { if (e.key === 'Escape') onClose(); };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [onClose]);
+
   if (!project) return null;
 
   return (
     <ModalOverlay>
       <ModalContainer
+        role="dialog"
+        aria-modal="true"
+        aria-label={project.title}
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={transition}
       >
-        <CloseButton onClick={onClose}>&times;</CloseButton>
+        <CloseButton onClick={onClose} aria-label="Fermer">&times;</CloseButton>
         <ProjectContent>
           <ProjectTitleModal>{project.title}</ProjectTitleModal>
 
           {project.image && <Image src={project.image} alt={project.title} />}
 
           {project.videos && project.videos.map(video => (
-            <Video controls>
+            <Video key={video} controls>
               <source src={video} type='video/mp4' />
             </Video>
           ))}
@@ -117,7 +128,7 @@ const ProjectModal = ({ isOpen, onClose, project }) => {
           <ProjectDescriptionModal dangerouslySetInnerHTML={{ __html: project.description_modal }} />
 
           {project.images && project.images.map(image => (
-            <Image src={image} alt={project.title} />
+            <Image key={image} src={image} alt={project.title} loading="lazy" />
           ))}
 
           {project.codeLink && <a href={project.codeLink}>Lien du code projet</a>}

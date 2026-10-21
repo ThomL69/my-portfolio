@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import skillsData from '../data/skills.json'; // Import des données de skills
 
 const AboutContainer = styled(motion.div)`
@@ -116,7 +116,7 @@ const About = () => {
       <AboutContent>
         <SectionTitle>À propos de moi</SectionTitle>
         <Description>
-          Je m'appelle Thomas, un jeune développeur de 25 ans passionné par le développement, curieux et motivé, toujours prêt à apprendre de nouvelles technologies et à relever des défis techniques. <br /> Mon cursus universitaire m'a permis d'apprendre les bases de la programmation avec les langages C, C++, C# et Java, ainsi que les technologies web de base, telles que HTML, CSS, Javascript et PHP. De plus, j'ai égalemment appris à gérer des bases de données SQL et à appliquer des méthodes agiles dans des contextes de projets à plusieurs. <br />
+          Je m'appelle Thomas, un jeune développeur de 25 ans passionné par le développement, curieux et motivé, toujours prêt à apprendre de nouvelles technologies et à relever des défis techniques. <br /> Mon cursus universitaire m'a permis d'apprendre les bases de la programmation avec les langages C, C++, C# et Java, ainsi que les technologies web de base, telles que HTML, CSS, Javascript et PHP. De plus, j'ai également appris à gérer des bases de données SQL et à appliquer des méthodes agiles dans des contextes de projets à plusieurs. <br />
         </Description>
         <BlockLine />
         <Description>
@@ -134,8 +134,8 @@ const About = () => {
                   <h4 className="card-title text-center mt-2">{skill.title}</h4>
                   <div className="progress shadow-sm" >
                     <SkillItem className="progress-bar" role="progressbar" style={{ width: skill.width }}
-                      aria-valuenow={{ width: skill.width }} aria-valuemin="0" aria-valuemax="100"
-                      aria-label="progressbar for HTML and CSS">{skill.percentage}</SkillItem>
+                      aria-valuenow={parseInt(skill.width, 10)} aria-valuemin="0" aria-valuemax="100"
+                      aria-label={`Niveau en ${skill.title}`}>{skill.percentage}</SkillItem>
                   </div>
                 </div>
               </section>
@@ -149,8 +149,8 @@ const About = () => {
             <p>
               Cliquez sur l'icône ci-dessous pour télécharger mon CV dans un format PDF
             </p>
-            <a href='docs/cv.pdf' id="link-pdf" title='Téléchargez mon CV' download="cv_thomas_lieghio_dev_junior" aria-label='Téléchargez CV en PDF'>
-              <img id="skill-pdf" src="imgs/icons/pdf-icon.png" width="80" className='mb-3' alt="Icon file PDF download" />
+            <a href={`${process.env.PUBLIC_URL}/docs/cv.pdf`} id="link-pdf" title='Téléchargez mon CV' download="cv_thomas_lieghio_dev_junior" aria-label='Téléchargez CV en PDF'>
+              <img id="skill-pdf" src={`${process.env.PUBLIC_URL}/imgs/icons/pdf-icon.png`} width="80" className='mb-3' alt="Icône de téléchargement du CV au format PDF" />
             </a>
         </CVContainer>
 

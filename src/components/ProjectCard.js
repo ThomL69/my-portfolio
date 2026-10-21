@@ -69,7 +69,7 @@ const ProjectCard = ({ project, onOpenModal }) => {
   
   return (
     <CardContainer>
-      <CardImage src={project.imageCard} alt={project.title} />
+      <CardImage src={project.imageCard} alt={project.title} loading="lazy" />
 
       <CardContent>
         <Title>{project.title}</Title>

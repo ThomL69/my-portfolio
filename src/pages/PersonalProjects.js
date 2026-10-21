@@ -41,7 +41,7 @@ const PersonalProjects = () => {
     navigate('/projects/');
   }
 
-  if (projectsData.length == 0) 
+  if (projectsData.length === 0) 
     return (
       <ProjectsContainer>
         <button onClick={returnProjectsPage}>Retour</button>

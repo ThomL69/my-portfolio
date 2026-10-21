@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const HeaderContainer = styled.header`
   background: #f8f9fa;
@@ -32,12 +32,12 @@ const NavItem = styled.li`
 const MotionLink = motion.create(Link);
 
 const Header = () => {
-  const location = useLocation("/");
+  const location = useLocation();
 
   return (
     <HeaderContainer>
       <Logo>Mon Portfolio</Logo>
-      <Nav>
+      <Nav aria-label="Navigation principale">
         <NavItem>
           <MotionLink id="link-styles" to="/" 
             key={location.pathname}

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 
 const ProjectsContainer = styled(motion.div)`
@@ -105,7 +105,7 @@ const Projects = () => {
       <ProjectsGrid>
         <ProjectCardContainer variants={popUp}>
           <Link to='/projects/universityProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/university.jpg" alt="logo_prj_univ" />
+            <ProjectImage src={`${process.env.PUBLIC_URL}/imgs/university.jpg`} alt="" loading="lazy" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Universitaires</ProjectTitle>
@@ -118,7 +118,7 @@ const Projects = () => {
         </ProjectCardContainer>
         <ProjectCardContainer variants={popUp}>
           <Link to='/projects/gameJamProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/gamejam.jpg" alt="logo_gamejam" />
+            <ProjectImage src={`${process.env.PUBLIC_URL}/imgs/gamejam.jpg`} alt="" loading="lazy" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Games Jam</ProjectTitle>
@@ -131,7 +131,7 @@ const Projects = () => {
         </ProjectCardContainer>
         <ProjectCardContainer variants={popUp}>
           <Link to='/projects/personalProjects'>
-            <ProjectImage src="https://ThomL69.github.io/my-portfolio/imgs/personnel.jpg" alt="logo_prj_perso" />
+            <ProjectImage src={`${process.env.PUBLIC_URL}/imgs/personnel.jpg`} alt="" loading="lazy" />
             <ProjectOverlay>
               <div>
                 <ProjectTitle>Projets Personnels</ProjectTitle>

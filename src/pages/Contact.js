@@ -30,6 +30,7 @@ const InputGroup = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+
 `;
 
 const Label = styled.label`
@@ -73,6 +74,8 @@ const Button = styled.button`
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-align: center;
+  margin: auto;
 
   &:hover {
     background: #246ed2;
@@ -105,7 +108,7 @@ const Contact = () => {
             <Label htmlFor="message">Message:</Label>
             <TextArea id="message" name="message" rows="5" required />
           </InputGroup>
-          <Button type="submit">Envoyer message</Button>
+          <Button type="submit">Envoyer</Button>
         </Form>
       </ContactFormContainer>
     </ContactContainer>
