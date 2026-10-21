@@ -4,33 +4,22 @@ import ProjectCard from '../components/ProjectCard';
 import projectsData from '../data/personalProjects.json'; // Import des données de projets
 import ProjectModal from '../components/ProjectModal'
 import { useNavigate } from 'react-router-dom';
-
-const ProjectsContainer = styled.div`
-  padding: 50px 20px 50px;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #3a86ff;
-`;
+import { Wrap, PageSection, PageTitle, ProjectsGrid, BackButton } from '../components/ui';
+import Reveal from '../components/Reveal';
 
 const SectionMessage = styled.p`
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #3a86ff;
-`;
-
-
-const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
+  margin: 0;
+  padding: 28px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  font-size: 1.15rem;
+  color: var(--muted);
 `;
 
 const PersonalProjects = () => {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
-  
+
   // Fonction pour ouvrir le modal avec les détails du projet
   const handleOpenProjectModal = (id) => {
     setSelectedProjectId(id);
@@ -41,33 +30,39 @@ const PersonalProjects = () => {
     navigate('/projects/');
   }
 
-  if (projectsData.length == 0) 
+  if (projectsData.length == 0)
     return (
-      <ProjectsContainer>
-        <button onClick={returnProjectsPage}>Retour</button>
-        <SectionTitle>Mes projets personnels</SectionTitle>
-        <SectionMessage>Insertion de projets personnels en cours...</SectionMessage>
-      </ProjectsContainer>
+      <PageSection>
+        <Wrap>
+          <BackButton type="button" onClick={returnProjectsPage}>Retour</BackButton>
+          <PageTitle>Mes projets personnels</PageTitle>
+          <SectionMessage>Insertion de projets personnels en cours...</SectionMessage>
+        </Wrap>
+      </PageSection>
     );
 
   return (
-    <ProjectsContainer>
-      <button onClick={returnProjectsPage}>Retour</button>
-      <SectionTitle>Mes projets personnels</SectionTitle>     
-      <ProjectsGrid>
-        {projectsData.map(project => (
-          <ProjectCard key={project.id} project={project} onOpenModal={() => handleOpenProjectModal(project.id)} />
-        ))}
-      </ProjectsGrid>
-      {/* Modal pour afficher les détails du projet */}
-      {selectedProjectId && (
-        <ProjectModal
-          isOpen={true}
-          onClose={() => setSelectedProjectId(null)}
-          project={projectsData.find(p => p.id === selectedProjectId)} // Recherche du projet par ID
-        />
-      )}
-    </ProjectsContainer>
+    <PageSection>
+      <Wrap>
+        <BackButton type="button" onClick={returnProjectsPage}>Retour</BackButton>
+        <PageTitle>Mes projets personnels</PageTitle>
+        <ProjectsGrid>
+          {projectsData.map((project, i) => (
+            <Reveal key={project.id} delay={(i % 3) * 0.08} style={{ height: '100%' }}>
+              <ProjectCard project={project} onOpenModal={() => handleOpenProjectModal(project.id)} />
+            </Reveal>
+          ))}
+        </ProjectsGrid>
+        {/* Modal pour afficher les détails du projet */}
+        {selectedProjectId && (
+          <ProjectModal
+            isOpen={true}
+            onClose={() => setSelectedProjectId(null)}
+            project={projectsData.find(p => p.id === selectedProjectId)} // Recherche du projet par ID
+          />
+        )}
+      </Wrap>
+    </PageSection>
   );
 };
 

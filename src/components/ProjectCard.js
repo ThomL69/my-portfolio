@@ -1,75 +1,82 @@
 import styled from 'styled-components';
+import { ButtonEl } from './ui';
 
 const CardContainer = styled.div`
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   overflow: hidden;
-  transition: all 0.3s ease;
-  height: auto; // Hauteur fixe pour un design uniforme
-  max-width: 500px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
 
   &:hover {
-    transform: scale(1.02);
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-hover);
   }
 `;
 
 const CardImage = styled.img`
+  display: block;
   width: 100%;
-  height: 240px; // Hauteur de l'image fixe
+  height: 220px; /* hauteur d'image fixe */
   object-fit: cover;
-  align: center;
 `;
 
 const CardContent = styled.div`
-  padding: 10px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 22px 24px;
   text-align: left;
 `;
 
 const Title = styled.h3`
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #3a86ff;
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
 `;
 
 const Description = styled.p`
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #6c757d;
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--muted);
 `;
 
 const TechStack = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  margin-top: 10px;
+  gap: 6px;
+  margin-top: 14px;
 `;
 
 const TechItem = styled.span`
-  background: #eaeaea;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  color: #3a86ff;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--chip);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
 `;
 
-const DetailsButton = styled.button`
-  background: transparent;
-  border-radius: 12px;
-  border: 2px solid #0444acff;
-  font-size: 20px;
-  cursor: pointer;
-  color: #3a86ff;
-  margin-top: 15px;
+const DetailsWrap = styled.div`
+  margin-top: auto;
+  padding-top: 18px;
 `;
-
 
 const ProjectCard = ({ project, onOpenModal }) => {
   if (!project) return null;
-  
+
   return (
     <CardContainer>
-      <CardImage src={project.imageCard} alt={project.title} />
+      <CardImage src={project.imageCard} alt={project.title} loading="lazy" />
 
       <CardContent>
         <Title>{project.title}</Title>
@@ -80,7 +87,9 @@ const ProjectCard = ({ project, onOpenModal }) => {
             <TechItem key={index}>{tech}</TechItem>
           ))}
         </TechStack>
-        <DetailsButton onClick={onOpenModal}>En savoir plus</DetailsButton>
+        <DetailsWrap>
+          <ButtonEl type="button" $ghost onClick={onOpenModal}>En savoir plus</ButtonEl>
+        </DetailsWrap>
       </CardContent>
     </CardContainer>
   );

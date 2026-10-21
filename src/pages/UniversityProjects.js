@@ -1,25 +1,10 @@
 import { useState } from 'react';
-import styled from 'styled-components';
 import ProjectCard from '../components/ProjectCard';
 import projectsData from '../data/universityProjects.json'; // Import des données de projets
 import ProjectModal from '../components/ProjectModal'
 import { useNavigate } from 'react-router-dom';
-
-const ProjectsContainer = styled.div`
-  padding: 50px 20px 50px;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #3a86ff;
-`;
-
-const ProjectsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
-  gap: 20px;
-`;
+import { Wrap, PageSection, PageTitle, ProjectsGrid, BackButton } from '../components/ui';
+import Reveal from '../components/Reveal';
 
 const UniversityProjects = () => {
   const [selectedProjectId, setSelectedProjectId] = useState(null);
@@ -35,23 +20,27 @@ const UniversityProjects = () => {
   }
 
   return (
-    <ProjectsContainer>
-      <button onClick={returnProjectsPage}>Retour</button>
-      <SectionTitle>Mes projets universitaires</SectionTitle>
-      <ProjectsGrid>
-        {projectsData.map(project => (
-          <ProjectCard key={project.id} project={project} onOpenModal={() => handleOpenProjectModal(project.id)} />
-        ))}
-      </ProjectsGrid>
-      {/* Modal pour afficher les détails du projet */}
-      {selectedProjectId && (
-        <ProjectModal
-          isOpen={true}
-          onClose={() => setSelectedProjectId(null)}
-          project={projectsData.find(p => p.id === selectedProjectId)} // Recherche du projet par ID
-        />
-      )}
-    </ProjectsContainer>
+    <PageSection>
+      <Wrap>
+        <BackButton type="button" onClick={returnProjectsPage}>Retour</BackButton>
+        <PageTitle>Mes projets universitaires</PageTitle>
+        <ProjectsGrid>
+          {projectsData.map((project, i) => (
+            <Reveal key={project.id} delay={(i % 3) * 0.08} style={{ height: '100%' }}>
+              <ProjectCard project={project} onOpenModal={() => handleOpenProjectModal(project.id)} />
+            </Reveal>
+          ))}
+        </ProjectsGrid>
+        {/* Modal pour afficher les détails du projet */}
+        {selectedProjectId && (
+          <ProjectModal
+            isOpen={true}
+            onClose={() => setSelectedProjectId(null)}
+            project={projectsData.find(p => p.id === selectedProjectId)} // Recherche du projet par ID
+          />
+        )}
+      </Wrap>
+    </PageSection>
   );
 };
 

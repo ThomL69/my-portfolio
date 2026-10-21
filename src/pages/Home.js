@@ -1,76 +1,83 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Wrap, ButtonLink } from '../components/ui';
 
-const HomeContainer = styled(motion.div)`
-  text-align: center;
-  padding: 100px 20px 50px;
+const Hero = styled(motion.section)`
+  padding: clamp(56px, 12vw, 140px) 0 clamp(48px, 8vw, 100px);
 `;
 
-const MySection = styled(motion.section)`
-  margin-bottom: 40px;
-  position: relative;
-  overflow: hidden;
-  height: 600px;
+const Eyebrow = styled(motion.p)`
+  margin: 0 0 16px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
 `;
 
-const MyContent = styled(motion.div)`
-  align-items: center;
-  max-width: 500px;
-  margin: 50px auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-`;
+const MyTitle = styled(motion.h1)`
+  margin: 0 0 24px;
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(120deg, #fff 30%, var(--accent-hover));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 
-const MyTitle = styled.h1`
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: #3a86ff;
-`;
-
-const Subtitle = styled.h2`
-  margin-bottom: 40px;
-  line-height: 1.6;
-  color: #0864f9ff;
-`;
-
-const ButtonGroup = styled.div`
-  display: flex;
-  gap: 15px;
-`;
-
-const PrimaryButton = styled(Link)`
-  background: #3a86ff;
-  color: white;
-  padding: 15px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  flex-grow: 4;
-
-  &:hover {
-    background: #246ed2;
-    color: white;
-    text-decoration: none;
+  em {
+    font-style: normal;
+    color: var(--accent);
+    -webkit-text-fill-color: var(--accent);
   }
 `;
 
-const SecondaryButton = styled(Link)`
-  background: #eee;
-  color: #555;
-  padding: 15px 25px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  flex-grow: 4;
+// Le texte rotatif est animé par public/js/anim.js (classe .txt-rotate)
+const Subtitle = styled(motion.h2)`
+  max-width: 640px;
+  min-height: 3.2em;
+  margin: 0 0 36px;
+  font-size: clamp(1.1rem, 2.2vw, 1.45rem);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--muted);
 
-  &:hover {
-    background: #ddd;
-    text-decoration: none;
+  .txt-rotate {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  @media (max-width: 640px) {
+    min-height: 4.6em;
+  }
+`;
+
+const ButtonGroup = styled(motion.div)`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
+`;
+
+const Chips = styled(motion.ul)`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 48px 0 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--chip);
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
   }
 `;
 
@@ -81,50 +88,59 @@ const container = {
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0.2, // this will set a delay before the children start animating
-      staggerChildren: 0.5 // this will set the time inbetween children animation
+      delayChildren: 0.1,
+      staggerChildren: 0.12
     }
   }
 };
 
-const dropUp = {
+const rise = {
   hidden: {
-    y: "50vw"
+    opacity: 0,
+    y: 24
   },
   visible: {
+    opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
-      stiffness: 50,
-      mass: 0.3,
+      duration: 0.6,
+      ease: [0.2, 0.8, 0.2, 1],
     }
   }
 };
 
 const Home = () => {
   return (
-    <HomeContainer
+    <Hero
       variants={container}
       initial="hidden"
-      animate="visible" 
+      animate="visible"
     >
-      <MySection variants={dropUp}>
-        <MyTitle>Thomas Lieghio</MyTitle>
-        <Subtitle className="fs-5 mt-3 interactiveTitle">
+      <Wrap>
+        <Eyebrow variants={rise}>Portfolio · Développeur junior</Eyebrow>
+        <MyTitle variants={rise}>Thomas <em>Lieghio</em></MyTitle>
+        <Subtitle variants={rise}>
           Développeur junior en recherche actuelle d'un poste de
-          <span className="txt-rotate fw-bold" data-period="2000" data-rotate="[ &quot; Développeur web&quot;, &quot; Développeur logiciel&quot;, &quot; Développeur Fullstack&quot;, &quot; Développeur Gameplay&quot;]">
+          <span className="txt-rotate" data-period="2000" data-rotate="[ &quot; Développeur web&quot;, &quot; Développeur logiciel&quot;, &quot; Développeur Fullstack&quot;, &quot; Développeur Gameplay&quot;]">
             <span className="wrap"></span>
           </span>
         </Subtitle>
-        
-        <MyContent variants={dropUp}>
-          <ButtonGroup>
-            <PrimaryButton to="/projects">Découvrez mes projets</PrimaryButton>
-            <SecondaryButton to="/contact">Contactez-moi</SecondaryButton>
-          </ButtonGroup> 
-        </MyContent>
-      </MySection>
-    </HomeContainer>
+
+        <ButtonGroup variants={rise}>
+          <ButtonLink to="/projects">Découvrez mes projets</ButtonLink>
+          <ButtonLink to="/contact" $ghost>Contactez-moi</ButtonLink>
+        </ButtonGroup>
+
+        <Chips variants={rise} aria-label="Technologies">
+          <li>C / C++</li>
+          <li>C#</li>
+          <li>Unity</li>
+          <li>Unreal Engine</li>
+          <li>Python</li>
+          <li>SQL</li>
+        </Chips>
+      </Wrap>
+    </Hero>
   );
 };
 
