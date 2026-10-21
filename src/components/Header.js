@@ -1,67 +1,153 @@
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { motion } from 'motion/react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { Wrap } from './ui';
 
-const HeaderContainer = styled.header`
-  background: #f8f9fa;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px 30px;
+const HeaderBar = styled.header`
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--header-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+`;
+
+const Inner = styled(Wrap)`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  height: var(--header-h);
 `;
 
 const Logo = styled.div`
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #3a86ff;
-  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text);
   cursor: default;
+
+  span {
+    color: var(--accent);
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
-  list-style: none;
+  gap: 4px;
+
+  @media (max-width: 640px) {
+    display: ${({ $open }) => ($open ? 'flex' : 'none')};
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: 12px 16px 20px;
+    background: var(--surface-solid);
+    border-bottom: 1px solid var(--border);
+  }
 `;
 
-const NavItem = styled.li`
-  margin-left: 25px;
+const NavItem = styled(NavLink)`
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--muted);
   text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+
+  &:hover,
+  &.active {
+    color: var(--text);
+    background: var(--chip);
+  }
+
+  @media (max-width: 640px) {
+    padding: 12px 14px;
+    border-radius: var(--radius);
+  }
 `;
 
-const MotionLink = motion.create(Link);
+const Burger = styled.button`
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
 
-const NAV_LINKS = [
-  { to: '/', label: 'Accueil' },
+  span {
+    position: absolute;
+    left: 11px;
+    right: 11px;
+    height: 2px;
+    border-radius: 2px;
+    background: currentColor;
+    transition: transform 0.25s, top 0.25s;
+  }
+  span:nth-child(1) { top: 16px; }
+  span:nth-child(2) { top: 26px; }
+
+  &[aria-expanded="true"] span:nth-child(1) { top: 21px; transform: rotate(45deg); }
+  &[aria-expanded="true"] span:nth-child(2) { top: 21px; transform: rotate(-45deg); }
+
+  @media (max-width: 640px) {
+    display: block;
+  }
+`;
+
+const links = [
+  { to: '/', label: 'Accueil', end: true },
   { to: '/about', label: 'À propos' },
   { to: '/projects', label: 'Projets' },
   { to: '/contact', label: 'Contact' },
 ];
 
-const Header = () => (
-  <HeaderContainer>
-    <Logo>Mon Portfolio</Logo>
-    <Nav aria-label="Navigation principale">
-      {NAV_LINKS.map(({ to, label }) => (
-        <NavItem key={to}>
-          <MotionLink
-            className="link-styles inline-block"
-            to={to}
-            // Effet "jelly" au survol
-            animate={{ rotate: 0, scale: 1, textShadow: "0px 0px 0px rgba(0, 181, 33, 0)" }}
-            whileHover={{
-              scale: 1.2,
-              rotate: [0, -5, 5, -3, 0],
-              textShadow: "0px 0px 10px rgba(0, 181, 33, 1)",
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            {label}
-          </MotionLink>
-        </NavItem>
-      ))}
-    </Nav>
-  </HeaderContainer>
-);
+const Header = () => {
+  const [open, setOpen] = useState(false);
+  const location = useLocation();
+
+  // Referme le menu mobile à chaque changement de page
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
+
+  // Échap referme le menu
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => e.key === 'Escape' && setOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [open]);
+
+  return (
+    <HeaderBar>
+      <a className="skip-link" href="#main">Aller au contenu</a>
+      <Inner>
+        <Logo>Mon <span>Portfolio</span></Logo>
+        <Burger
+          type="button"
+          aria-label="Menu"
+          aria-expanded={open}
+          aria-controls="main-nav"
+          onClick={() => setOpen((o) => !o)}
+        >
+          <span />
+          <span />
+        </Burger>
+        <Nav id="main-nav" aria-label="Navigation principale" $open={open}>
+          {links.map(({ to, label, end }) => (
+            <NavItem key={to} to={to} end={end}>{label}</NavItem>
+          ))}
+        </Nav>
+      </Inner>
+    </HeaderBar>
+  );
+};
 
 export default Header;

@@ -1,146 +1,179 @@
-import styled, { keyframes } from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { motion } from 'motion/react';
 import skillsData from '../data/skills.json'; // Import des données de skills
+import { Wrap, PageSection, PageTitle, ButtonLink, ButtonAnchor } from '../components/ui';
+import Reveal from '../components/Reveal';
 
-const AboutContainer = styled(motion.div)`
-  text-align: center;
-  padding: 20px 20px 50px;
+const AboutGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(32px, 6vw, 72px);
+  align-items: start;
+
+  @media (max-width: 860px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
-const SectionTitle = styled(motion.h2)`
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #3a86ff;
+const Description = styled.p`
+  max-width: 62ch;
+  margin: 0 0 18px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--muted);
 `;
 
-const AboutContent = styled.div`
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+const SkillsCard = styled(motion.div)`
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 `;
 
-const Description = styled(motion.p)`
-  text-align: justify;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #555;
-  margin-left: 5%;
-  margin-right: 5%;
+const SkillsTitle = styled.h3`
+  margin: 0 0 20px;
+  font-size: 1.15rem;
 `;
 
-const SkillsContainer = styled(motion.div)`
+const SkillsList = styled.ul`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 24px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+`;
+
+const SkillHeader = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  b {
+    font-weight: 600;
+    color: var(--muted);
+  }
 `;
 
-const progressBarAnimation = keyframes`
-  0%{width : 0}
+const Track = styled.div`
+  height: 8px;
+  border-radius: 8px;
+  background: var(--chip);
+  overflow: hidden;
 `;
 
-const SkillItem = styled.div`
-  animation-name: ${progressBarAnimation};
-  animation-duration: 1s;
-  animation-timing-function: ease-in-out;
+// L'animation de remplissage est un scaleX : coupée si prefers-reduced-motion
+const Fill = styled(motion.div)`
+  height: 100%;
+  border-radius: 8px;
+  background: var(--bar-gradient);
+  transform-origin: left center;
 `;
 
 const CVContainer = styled.div`
-  text-align: center;
+  margin-top: 28px;
+
+  p {
+    margin: 0 0 14px;
+    color: var(--muted);
+  }
 `;
 
-const BlockLine = styled.hr`
-  width: 50%;
-  border: 2px solid #3a86ff;
-  border-radius: 5px;
-  margin-left: auto;
-  margin-right: auto;
+const Actions = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+  }
 `;
 
-const container = {
-  hidden: {
-    opacity: 0
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.1,
-      staggerChildren: 0.3
-    }
-  }
-}
+const skillsContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.06 } },
+};
 
-const popUp = {
-  hidden: {
-    opacity: 0,
-    scale: 0
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 50,
-      mass: 0.3,
-    }
-  }
-}
+const fill = {
+  hidden: { scaleX: 0 },
+  visible: { scaleX: 1, transition: { duration: 1, ease: [0.2, 0.8, 0.2, 1] } },
+};
 
 const About = () => {
   return (
-    <AboutContainer
-      variants={container}
-      initial="hidden"
-      animate="visible"
-    >
-      <AboutContent>
-        <SectionTitle>À propos de moi</SectionTitle>
-        <Description>
-          Je m'appelle Thomas, un jeune développeur de 25 ans passionné par le développement, curieux et motivé, toujours prêt à apprendre de nouvelles technologies et à relever des défis techniques. <br /> Mon cursus universitaire m'a permis d'apprendre les bases de la programmation avec les langages C, C++, C# et Java, ainsi que les technologies web de base, telles que HTML, CSS, Javascript et PHP. De plus, j'ai également appris à gérer des bases de données SQL et à appliquer des méthodes agiles dans des contextes de projets à plusieurs. <br />
-        </Description>
-        <BlockLine />
-        <Description>
-          Je suis à la recherche d'une première expérience en tant que développeur web et/ou logiciel pour mettre en pratique mes compétences dans des projets réels et stimulants pour me permettre d'évoluer professionnellement.
-        </Description>
+    <PageSection>
+      <Wrap>
+        <PageTitle>À propos de moi</PageTitle>
+        <AboutGrid>
+          <Reveal>
+            <Description>
+              Je m'appelle Thomas, un jeune développeur de 25 ans passionné par le développement, curieux et motivé, toujours prêt à apprendre de nouvelles technologies et à relever des défis techniques.
+            </Description>
+            <Description>
+              Mon cursus universitaire m'a permis d'apprendre les bases de la programmation avec les langages C, C++, C# et Java, ainsi que les technologies web de base, telles que HTML, CSS, Javascript et PHP. De plus, j'ai également appris à gérer des bases de données SQL et à appliquer des méthodes agiles dans des contextes de projets à plusieurs.
+            </Description>
+            <Description>
+              Je suis à la recherche d'une première expérience en tant que développeur web et/ou logiciel pour mettre en pratique mes compétences dans des projets réels et stimulants pour me permettre d'évoluer professionnellement.
+            </Description>
 
-        <BlockLine />
+            <CVContainer>
+              <p>
+                Cliquez sur le bouton ci-dessous pour télécharger mon CV dans un format PDF
+              </p>
+              <Actions>
+                <ButtonAnchor
+                  $ghost
+                  href={`${process.env.PUBLIC_URL}/docs/cv.pdf`}
+                  title="Téléchargez mon CV"
+                  download="cv_thomas_lieghio_dev_junior"
+                  aria-label="Téléchargez CV en PDF"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" /></svg>
+                  Télécharger mon CV (PDF)
+                </ButtonAnchor>
+                <ButtonLink to="/contact">Contactez-moi</ButtonLink>
+              </Actions>
+            </CVContainer>
+          </Reveal>
 
-        <div className="container-fluid mx-auto my-3">
-          <SectionTitle>Mes compétences clés</SectionTitle>
-          <SkillsContainer>
-            {skillsData.map(skill => (
-              <section key={skill.id} className="col-12 col-lg-6 d-flex flex-column flex-md-row align-items-center mb-3">
-                <div className="card-body d-flex flex-column col">
-                  <h4 className="card-title text-center mt-2">{skill.title}</h4>
-                  <div className="progress shadow-sm" >
-                    <SkillItem className="progress-bar" role="progressbar" style={{ width: skill.width }}
-                      aria-valuenow={parseInt(skill.width, 10)} aria-valuemin="0" aria-valuemax="100"
-                      aria-label={`Niveau en ${skill.title}`}>{skill.percentage}</SkillItem>
-                  </div>
-                </div>
-              </section>
-            ))}
-          </SkillsContainer>
-        </div>
-
-        <BlockLine />
-
-        <CVContainer>
-            <p>
-              Cliquez sur l'icône ci-dessous pour télécharger mon CV dans un format PDF
-            </p>
-            <a href={`${process.env.PUBLIC_URL}/docs/cv.pdf`} id="link-pdf" title='Téléchargez mon CV' download="cv_thomas_lieghio_dev_junior" aria-label='Téléchargez CV en PDF'>
-              <img id="skill-pdf" src={`${process.env.PUBLIC_URL}/imgs/icons/pdf-icon.png`} width="80" className='mb-3' alt="Icône de téléchargement du CV au format PDF" />
-            </a>
-        </CVContainer>
-
-        <Link to="/contact" className="primary-button">Contactez-moi</Link>
-      </AboutContent>
-    </AboutContainer>
+          <SkillsCard
+            variants={skillsContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            <SkillsTitle>Mes compétences clés</SkillsTitle>
+            <SkillsList>
+              {skillsData.map(skill => (
+                <li key={skill.id}>
+                  <SkillHeader>
+                    <span>{skill.title}</span>
+                    <b>{skill.percentage.replace(' ', '')}</b>
+                  </SkillHeader>
+                  <Track
+                    role="progressbar"
+                    aria-label={skill.title}
+                    aria-valuenow={parseInt(skill.width, 10)}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                  >
+                    <Fill variants={fill} style={{ width: skill.width }} />
+                  </Track>
+                </li>
+              ))}
+            </SkillsList>
+          </SkillsCard>
+        </AboutGrid>
+      </Wrap>
+    </PageSection>
   );
 };
 

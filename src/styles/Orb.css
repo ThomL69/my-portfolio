@@ -1,8 +1,11 @@
+/* Fond Orb : fixé derrière le contenu, adouci pour s'accorder au thème sombre */
 .orb-container {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   width: 100%;
-  height: 100%;
-  top: 2.5%;
-  bottom: 0%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
 }

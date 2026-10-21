@@ -1,93 +1,77 @@
 import styled from 'styled-components';
 import { useForm, ValidationError } from '@formspree/react';
+import { Wrap, PageSection, PageTitle, ButtonEl } from '../components/ui';
+import Reveal from '../components/Reveal';
 
 // Identifiant du formulaire Formspree, défini dans .env (voir .env.example)
 const FORMSPREE_ID = process.env.REACT_APP_FORMSPREE_ID;
 
-const ContactContainer = styled.div`
-  padding: 20px 20px 50px;
-`;
-
-const SectionTitle = styled.h2`
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #3a86ff;
-`;
-
 const ContactFormContainer = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  max-width: 640px;
+  padding: clamp(22px, 4vw, 36px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 `;
 
 const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  display: grid;
+  gap: 18px;
 `;
 
 const InputGroup = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-
+  display: grid;
+  gap: 6px;
 `;
 
 const Label = styled.label`
-  font-weight: bold;
+  font-size: 0.95rem;
+  font-weight: 600;
+`;
+
+const fieldStyles = `
+  width: 100%;
+  padding: 13px 15px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: calc(var(--radius) - 2px);
+  background: var(--input-bg);
+  color: var(--text);
+  font: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &::placeholder {
+    color: var(--muted);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--glow);
+  }
 `;
 
 const TextInput = styled.input`
-  padding: 12px 15px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  flex: 1;
-  transition: all 0.3s ease;
-
-  &:focus {
-    outline: none;
-    border-color: #bbb;
-    box-shadow: 0 0 0 2px rgba(187, 214, 255, 0.3);
-  }
+  ${fieldStyles}
 `;
 
 const TextArea = styled.textarea`
-  padding: 12px 15px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  resize: none;
-  flex: 1;
-  transition: all 0.3s ease;
-
-  &:focus {
-    outline: none;
-    border-color: #bbb;
-    box-shadow: 0 0 0 2px rgba(187, 214, 255, 0.3);
-  }
+  ${fieldStyles}
+  resize: vertical;
 `;
 
-const Button = styled.button`
-  background: #3a86ff;
-  color: white;
-  padding: 15px 25px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: center;
-  margin: auto;
+const SubmitButton = styled(ButtonEl)`
+  justify-self: start;
 
-  &:hover {
-    background: #246ed2;
+  @media (max-width: 640px) {
+    justify-self: stretch;
   }
 `;
 
 const Message = styled.p`
-  text-align: center;
   margin: 0;
+  color: var(--text);
 `;
 
 const ContactForm = () => {
@@ -114,29 +98,31 @@ const ContactForm = () => {
         <TextArea id="message" name="message" rows="5" required />
         <ValidationError prefix="Message" field="message" errors={state.errors} />
       </InputGroup>
-      <Button type="submit" disabled={state.submitting}>Envoyer</Button>
+      <SubmitButton type="submit" disabled={state.submitting}>Envoyer</SubmitButton>
       {state.errors && state.errors.getFormErrors().length > 0 && (
-        <Message role="alert">
-          L'envoi a échoué. Veuillez réessayer plus tard.
-        </Message>
+        <Message role="alert">L'envoi a échoué. Veuillez réessayer plus tard.</Message>
       )}
     </Form>
   );
 };
 
 const Contact = () => (
-  <ContactContainer>
-    <SectionTitle>Contactez-moi</SectionTitle>
-    <ContactFormContainer>
-      {FORMSPREE_ID ? (
-        <ContactForm />
-      ) : (
-        <Message role="alert">
-          Le formulaire de contact n'est pas encore configuré. Merci de me contacter via LinkedIn ou GitHub (liens en bas de page).
-        </Message>
-      )}
-    </ContactFormContainer>
-  </ContactContainer>
+  <PageSection>
+    <Wrap>
+      <PageTitle>Contactez-moi</PageTitle>
+      <Reveal>
+        <ContactFormContainer>
+          {FORMSPREE_ID ? (
+            <ContactForm />
+          ) : (
+            <Message role="alert">
+              Le formulaire de contact n'est pas encore configuré. Merci de me contacter via LinkedIn ou GitHub (liens en bas de page).
+            </Message>
+          )}
+        </ContactFormContainer>
+      </Reveal>
+    </Wrap>
+  </PageSection>
 );
 
 export default Contact;
