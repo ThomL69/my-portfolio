@@ -105,7 +105,6 @@ const links = [
   { to: '/', label: 'Accueil', end: true },
   { to: '/about', label: 'À propos' },
   { to: '/projects', label: 'Projets' },
-  { to: '/contact', label: 'Contact' },
 ];
 
 const Header = () => {
