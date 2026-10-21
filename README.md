@@ -17,6 +17,13 @@ Site en ligne : https://ThomL69.github.io/my-portfolio
 - `src/data` : données des projets et des compétences (fichiers JSON)
 - `public` : images, CV (`docs/cv.pdf`), `index.html`, manifest
 
+## Configuration du formulaire de contact
+
+Le formulaire utilise [Formspree](https://formspree.io). Copier `.env.example` en `.env` et renseigner
+`REACT_APP_FORMSPREE_ID` avec l'identifiant du formulaire. Sans cette variable, la page Contact affiche un
+message indiquant que le formulaire n'est pas configuré. Pour le déploiement, définir la variable avant
+`npm run deploy` (elle est intégrée au build, et l'identifiant Formspree est public par conception).
+
 ## Scripts
 
 - `npm start` : serveur de développement sur http://localhost:3000
