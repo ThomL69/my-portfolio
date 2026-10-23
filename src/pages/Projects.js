@@ -12,7 +12,7 @@ const categories = [
     description: 'Projets réalisés durant mes différentes formations',
     image: `${IMG}/projet-universitaire.svg`,
     alt: 'Illustration : fenêtre de code et toque universitaire',
-    tag: 'C · C++ · C# · Java',
+    tag: 'C++ · C# · Blueprint',
   },
   {
     to: '/projects/gameJamProjects',
